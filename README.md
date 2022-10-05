@@ -9,6 +9,8 @@ Trabalho 2 Semestre - Site de Vagas de Emprego
 <hr>                
 <p>O repositório foi feito com a intenção de deixar a mostra nosso trabalho e de fácil acesso para quem quiser visitar o Portal!</p>
 
+<a href="https://trello.com/b/GTUbGxAW/projeto-interdisciplinar"> Link do Trello! </a>
+  
 <b> Integrantes </b>
 *  João Nascimento
 *  Lucas Rogatto
