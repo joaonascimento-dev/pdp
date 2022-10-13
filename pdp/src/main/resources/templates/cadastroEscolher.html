@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trivagas</title>
+  <title>Trivagas - Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -25,41 +25,37 @@
       </a>
 
       <div class="col-md-3 text-end">
-        <a class="btn btn-lg btn-danger me-2" href="cadastroEscolher.html"><i class="bi bi-person-plus-fill"></i>
-          Cadastrar</a>
-        <a class="btn btn-lg btn-outline-danger" href="login.html"><i class="bi bi-person-circle"></i> Login</a>
+        <button type="button" class="btn btn-lg btn-danger me-2"><i class="bi bi-person-plus-fill"></i>
+          Cadastrar</button>
+        <button type="button" class="btn btn-lg btn-outline-danger"><i class="bi bi-person-circle"></i> Login</button>
       </div>
     </header>
-
-
-
   </div>
-  <div class="container-fluid bg-danger pt-5"
-    style="height: 300px; background-image: url('img/city.png'); background-repeat: repeat; background-size: contain; background-position-x: center; background-position-y: 92px;">
-    <form action="/vagas">
-      <div class="input-group input-group-lg mt-5 px-md-5">
-        <input type="text" class="form-control" placeholder="Pesquise por cargo, vaga ou empresa"
-          aria-label="Pesquise por cargo, vaga ou empresa" aria-describedby="button-pesquisar">
-        <button class="btn btn-secondary" type="submit" id="button-pesquisar"><i class="bi bi-search"></i></button>
+
+  <div class="container-fluid bg-danger py-3">
+    <div class="text-center">
+      <p class="fs-4 text-center text-white"><i class="bi bi-person-plus-fill"></i> Cadastrar</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-5 px-5">
+        <a href="#">
+          <div class="card text-bg-dark">
+            <img src="img/empresa2.png" class="card-img" alt="empresa">
+          </div>
+        </a>
       </div>
-    </form>
-  </div>
-  <div class="container">
-    <div class="d-flex justify-content-center">
-      <p class="fs-4 mt-4">Encontre a sua vaga de emprego já</p>
-    </div>
-
-    <div class="row row-cols-md-3 row-cols-1">
-      <div th:each="vaga : ${listVaga}" class="col mb-2">
-        <th:block th:replace="@{/fragment/cardVaga}" />
+      <div class="col-5 px-5">
+        <a href="#">
+          <div class="card text-bg-dark">
+            <img src="img/aluno2.png" class="card-img" alt="aluno">
+          </div>
+        </a>
       </div>
     </div>
-
-    <div class="d-flex justify-content-center mt-2">
-      <a href="/vagas" class="btn btn-danger">Mostrar Todas</a>
-    </div>
   </div>
-  <div class="container-fluid pt-3 mt-4 bg-dark text-white">
+
+  <div class="container-fluid pt-3 bg-dark text-white">
     <p class="text-center">Escale a escada do sucesso como se fosse de elevador. -The Notorious B.I.G.</p>
 
     <div class="text-center pb-3 pt-2">

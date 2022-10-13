@@ -1,0 +1,375 @@
+:root {
+    --azul: #009ddc;
+    --azul-rgb: 0 157 220;
+    --azul-claro: #00aef4;
+    --azul-escuro: #008ac2;
+    --verde: #00927e;
+    --verde-rgb: 0 146 126;
+    --verde-claro: #00bba1;
+    --verde-escuro: #007c6b;
+    --amarelo: #e58e1a;
+    --amarelo-rgb: 229 142 26;
+    --amarelo-claro: #faa634;
+    --amarelo-escuro: #c97e19;
+    --vermelho-vinho: #9B3535;
+    --vermelho: #992525;
+    --vermelho-rgb: 153 37 37;
+    --vermelho-claro: #bd2b2b;
+    --vermelho-escuro: #701a1a;
+    --cinza: #dddddd;
+    --cinza-rgb: 195 197 199;
+    --cinza-claro: #c3c5c7;
+    --cinza-escuro: #999999;
+    
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+/* Botão Azul */
+.botao-azul {
+    border: 2px solid var(--azul);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--azul);
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-azul:hover {
+    border: 2px solid var(--azul);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--azul-escuro);
+    padding: 5px 15px;
+}
+
+.botao-azul:focus {
+    box-shadow: 0 0 0 0.25rem rgb(var(--azul-rgb) / 50%);
+}
+
+.botao-outline-azul {
+    background-color: white;
+    border: 2px solid var(--azul);
+    border-radius: 5px;
+    text-decoration: none;
+    /*color: black;*/
+    color: var(--azul);
+    font-weight: bold;
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-outline-azul:hover {
+    border: 2px solid var(--azul);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--azul);
+    padding: 5px 15px;
+}
+
+.botao-outline-azul:focus {
+    border: 2px solid var(--azul);
+    box-shadow: 0 0 0 0.25rem rgb(var(--azul-rgb) / 50%);
+}
+
+/* Botão Amarelo */
+.botao-amarelo {
+    border: 2px solid var(--amarelo);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--amarelo);
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-amarelo:hover {
+    border: 2px solid var(--amarelo);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--amarelo-escuro);
+    padding: 5px 15px;
+}
+
+.botao-amarelo:focus {
+    box-shadow: 0 0 0 0.25rem rgb(var(--amarelo-rgb) / 50%);
+}
+
+.botao-outline-amarelo {
+    background-color: white;
+    border: 2px solid var(--amarelo);
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--amarelo);
+    font-weight: bold;
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-outline-amarelo:hover {
+    border: 2px solid var(--amarelo);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--amarelo);
+    padding: 5px 15px;
+}
+
+.botao-outline-amarelo:focus {
+    border: 2px solid var(--amarelo);
+    box-shadow: 0 0 0 0.25rem rgb(var(--amarelo-rgb) / 50%);
+}
+
+/* Botão Verde */
+.botao-verde {
+    border: 2px solid var(--verde);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--verde);
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-verde:hover {
+    border: 2px solid var(--verde);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--verde-escuro);
+    padding: 5px 15px;
+}
+
+.botao-verde:focus {
+    box-shadow: 0 0 0 0.25rem rgb(var(--verde-rgb) / 50%);
+}
+
+.botao-outline-verde {
+    background-color: white;
+    border: 2px solid var(--verde);
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--verde);
+    font-weight: bold;
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-outline-verde:hover {
+    border: 2px solid var(--verde);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--verde);
+    padding: 5px 15px;
+}
+
+.botao-outline-verde:focus {
+    border: 2px solid var(--verde);
+    box-shadow: 0 0 0 0.25rem rgb(var(--verde-rgb) / 50%);
+}
+
+
+
+/* Botão Cinza */
+.botao-cinza {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    background-color: var(--cinza);
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-cinza:hover {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    background-color: var(--cinza-escuro);
+    padding: 5px 15px;
+}
+
+.botao-cinza:focus {
+    box-shadow: 0 0 0 0.25rem rgb(var(--cinza-rgb) / 50%);
+}
+
+.botao-outline-cinza {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-outline-cinza:hover {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    background-color: var(--vermelho);
+    padding: 5px 15px;
+}
+
+.botao-outline-cinza:focus {
+    border: 2px solid var(--vermelho);
+    box-shadow: 0 0 0 0.25rem rgb(var(--vermelho-rgb) / 50%);
+}
+
+/* Botão Vermelho */
+.botao-vermelho {
+    border: 2px solid var(--vermelho);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--vermelho);
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-vermelho:hover {
+    border: 2px solid var(--vermelho);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--vermelho-escuro);
+    padding: 5px 15px;
+}
+
+.botao-vermelho:focus {
+    box-shadow: 0 0 0 0.25rem rgb(var(--vermelho-rgb) / 50%);
+}
+
+.botao-outline-vermelho {
+    background-color: white;
+    border: 2px solid var(--vermelho);
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px 15px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.botao-outline-vermelho:hover {
+    border: 2px solid var(--vermelho);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--vermelho);
+    padding: 5px 15px;
+}
+
+.botao-outline-vermelho:focus {
+    border: 2px solid var(--vermelho);
+    box-shadow: 0 0 0 0.25rem rgb(var(--azul-rgb) / 50%);
+}
+
+/* Textos */
+.texto-azul {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+.texto-amarelo {
+    color: var(--amarelo);
+    text-decoration: none;
+}
+
+.texto-verde {
+    color: var(--verde);
+    text-decoration: none;
+}
+
+.texto-vermelho {
+    color: var(--vermelho-vinho);
+    text-decoration: none;
+}
+
+/* Backgrounds */
+.background-azul {
+    background-color: var(--azul);
+    color: white;
+}
+
+.background-verde {
+    background-color: var(--verde);
+    color: white;
+}
+
+.background-amarelo {
+    background-color: var(--amarelo);
+    color: white;
+}
+
+.background-amarelo-claro {
+    background-color: var(--amarelo-claro);
+    color: white;
+}
+
+.background-vermelho {
+    background-color: var(--vermelho-vinho);
+    color: white;
+}
+
+/* Input Text */
+.input-text {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.input-text:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.input-select {
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-image: url("img/icons8-seta-para-expandir-24.png");
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    appearance: none;
+}
+
+.input-select:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.paginacao {
+    border: #555555 solid 1px;
+    width: 20px;
+    font-weight: bold;
+}
