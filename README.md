@@ -1,4 +1,4 @@
-# Trivagas - ATENÇÃO! ESTAMOS REFAZENDO A INTERFACE DO SITE, E IREMOS TROCAR O NOME 'TRIVAGAS'
+# Portal de Vagas da Fatec Itapira
 Trabalho 2 Semestre - Site de Vagas de Emprego
 
 ![image](trivagasHTML/img/Logo.png)
