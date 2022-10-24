@@ -1,9 +1,13 @@
 package br.fatec.pdp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Vaga {
@@ -23,7 +27,9 @@ public class Vaga {
     private String descricao;
 
     private boolean ativo;
-    
+
+    @OneToMany(mappedBy = "vaga")
+    private List<AlunoVaga> listAlunoVaga = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -64,4 +70,14 @@ public class Vaga {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
+
+    public List<AlunoVaga> getListAlunoVaga() {
+        return listAlunoVaga;
+    }
+
+    public void setListAlunoVaga(List<AlunoVaga> listAlunoVaga) {
+        this.listAlunoVaga = listAlunoVaga;
+    }
+
+    
 }

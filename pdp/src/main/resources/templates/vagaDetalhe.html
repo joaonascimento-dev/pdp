@@ -42,7 +42,7 @@
         <p class="text-end">Empresa XYZ - Itapira, SP</p>
         <p>[(${vaga.getDescricao()})]</p>
           <div class="text-end">
-            <a href="#" class="btn btn-danger "><i class="bi bi-send-fill"></i> Aplicar-se</a>
+            <a th:href="'/vaga/aplicar/' + ${vaga.id}" class="btn btn-danger "><i class="bi bi-send-fill"></i> Aplicar-se</a>
           </div>  
       </div>
     </div>

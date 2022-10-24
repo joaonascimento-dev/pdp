@@ -14,8 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.fatec.pdp.filtro.UsuarioFiltro;
 import br.fatec.pdp.filtro.VagaFiltro;
+import br.fatec.pdp.model.Aluno;
+import br.fatec.pdp.model.AlunoVaga;
 import br.fatec.pdp.model.Usuario;
 import br.fatec.pdp.model.Vaga;
+import br.fatec.pdp.service.AlunoService;
+import br.fatec.pdp.service.AlunoVagaService;
 import br.fatec.pdp.service.UsuarioService;
 import br.fatec.pdp.service.VagaService;
 
@@ -28,6 +32,13 @@ public class SiteController {
 
     @Autowired
     private VagaService vagaService;
+
+    @Autowired
+    private AlunoService alunoService;
+
+    @Autowired
+    private AlunoVagaService alunoVagaService;
+
 
     @RequestMapping("/")
     public ModelAndView index(HttpSession session) {
@@ -90,6 +101,27 @@ public class SiteController {
 
         Vaga vaga = vagaService.findById(id);
         mav.addObject("vaga", vaga);
+
+        return mav;
+    }
+
+    @RequestMapping("/vaga/aplicar/{id}")
+    public ModelAndView vagaAplicar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaDetalhe");
+
+        Vaga vaga = vagaService.findById(id);
+        mav.addObject("vaga", vaga);
+
+        
+        //Puxar usuario q está logado
+        //Usuario usuario = usuarioService.findById(1);
+        Aluno aluno = alunoService.findById(1);
+        
+        AlunoVaga alunoVaga = new AlunoVaga();
+        alunoVaga.setAluno(aluno);
+        alunoVaga.setVaga(vaga);
+        alunoVagaService.save(alunoVaga);
 
         return mav;
     }

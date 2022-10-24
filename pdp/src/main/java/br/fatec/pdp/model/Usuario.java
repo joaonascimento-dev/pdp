@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.OneToOne;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,9 +29,9 @@ public class Usuario{
     private String senha;
     private boolean administrador;
 
-    /*@OneToOne
-    @JoinColumn(name = "funcionarioId")
-    private Funcionario funcionario;*/
+    //@OneToOne
+    //@JoinColumn(name = "alunoId")
+    //private Aluno aluno;
     
     
     public Integer getId() {
