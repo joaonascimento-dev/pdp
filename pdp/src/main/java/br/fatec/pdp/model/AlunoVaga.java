@@ -1,10 +1,14 @@
 package br.fatec.pdp.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class AlunoVaga {
@@ -18,6 +22,9 @@ public class AlunoVaga {
 
     @ManyToOne
     private Vaga vaga;
+
+    @CreationTimestamp
+    private LocalDateTime criacao;
 
     public Integer getId() {
         return id;

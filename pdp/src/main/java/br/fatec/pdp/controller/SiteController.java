@@ -106,12 +106,12 @@ public class SiteController {
     }
 
     @RequestMapping("/vaga/aplicar/{id}")
-    public ModelAndView vagaAplicar(@PathVariable(name = "id") Integer id,
+    public String vagaAplicar(@PathVariable(name = "id") Integer id,
             HttpSession session) {
-        ModelAndView mav = new ModelAndView("vagaDetalhe");
+        //ModelAndView mav = new ModelAndView("vagaDetalhe");
 
         Vaga vaga = vagaService.findById(id);
-        mav.addObject("vaga", vaga);
+        //mav.addObject("vaga", vaga);
 
         
         //Puxar usuario q está logado
@@ -122,6 +122,13 @@ public class SiteController {
         alunoVaga.setAluno(aluno);
         alunoVaga.setVaga(vaga);
         alunoVagaService.save(alunoVaga);
+
+        return "redirect:/vaga/aplicar/sucesso";
+    }
+
+    @RequestMapping("/vaga/aplicar/sucesso")
+    public ModelAndView vagasAplicarSucesso(HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaAplicarSucesso");
 
         return mav;
     }

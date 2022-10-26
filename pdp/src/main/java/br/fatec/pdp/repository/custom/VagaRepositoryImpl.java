@@ -45,6 +45,18 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             predicates.add(cb.equal(rootVaga.get("id"), vagaFiltro.getId()));
         }
 
+        if (vagaFiltro.isAprovacao()) {
+            predicates.add(cb.isTrue(rootVaga.get("aprovacao")));
+        } else {
+            predicates.add(cb.isFalse(rootVaga.get("aprovacao")));
+        }
+
+        if (vagaFiltro.isAtivo()) {
+            predicates.add(cb.isTrue(rootVaga.get("ativo")));
+        } else {
+            predicates.add(cb.isFalse(rootVaga.get("ativo")));
+        }
+
         /* Vaga não possui campo exclusao
         if(filtro.isExibirExcluidos() != null){
             if (!filtro.isExibirExcluidos()) {

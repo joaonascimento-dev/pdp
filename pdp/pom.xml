@@ -8,10 +8,10 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.mindware</groupId>
-	<artifactId>b3comandas</artifactId>
+	<groupId>br.fatec</groupId>
+	<artifactId>pdp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>b3comandas</name>
+	<name>pdp</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
