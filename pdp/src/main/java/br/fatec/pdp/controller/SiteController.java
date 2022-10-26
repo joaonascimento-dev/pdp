@@ -126,4 +126,18 @@ public class SiteController {
         return mav;
     }
 
+    @RequestMapping("/cadastroEscolher")
+    public ModelAndView cadastro(HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroEscolher");
+
+        return mav;
+    }
+
+    @RequestMapping("/cadastroEmpresa")
+    public ModelAndView cadastroEmp(HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroEmpresa");
+
+        return mav;
+    }
+
 }
