@@ -18,19 +18,7 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
 
-  <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1">
-      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img src="img/Logo.png" alt="Logo Trivagas" class="img-fluid">
-      </a>
-
-      <div class="col-md-3 text-end">
-        <a class="btn btn-lg btn-danger me-2" href="cadastroEscolher.html"><i class="bi bi-person-plus-fill"></i>
-          Cadastrar</a>
-        <a class="btn btn-lg btn-outline-danger" href="login.html"><i class="bi bi-person-circle"></i> Login</a>
-      </div>
-    </header>
-  </div>
+  <th:block th:replace="fragment/navbar" />
   
   <div class="container-fluid bg-danger pt-5"
     style="height: 300px; background-image: url('img/city.png'); background-repeat: repeat; background-size: contain; background-position-x: center; background-position-y: 92px;">
@@ -42,7 +30,7 @@
       </div>
     </form>
   </div>
-  <div class="container">
+  <div class="container mb-4">
     <div class="d-flex justify-content-center">
       <p class="fs-4 mt-4">Encontre a sua vaga de emprego já</p>
     </div>
@@ -57,21 +45,8 @@
       <a href="/vagas" class="btn btn-danger">Mostrar Todas</a>
     </div>
   </div>
-  <div class="container-fluid pt-3 mt-4 bg-dark text-white">
-    <p class="text-center">Escale a escada do sucesso como se fosse de elevador. -The Notorious B.I.G.</p>
 
-    <div class="text-center pb-3 pt-2">
-      <a href="#" class="link-light text-decoration-none px-2 border-1 border-end border-white">Home</a>
-      <a href="#" class="link-light text-decoration-none ps-1 pe-2 border-1 border-end border-white">Vagas</a>
-      <a href="#" class="link-light text-decoration-none ps-1 pe-2 border-1 border-end border-white">Sobre/Contato</a>
-      <a href="https://www.fatecitapira.edu.br/" target="_blank" class="link-light text-decoration-none px-1">Site Fatec
-        Itapira</a>
-    </div>
-
-    <div class="text-center text-secondary pe-2 pb-1 pt-4">
-      <p>João Nascimento, Leonardo Dezoti, Lucas Rogatto, Vitor Montini</p>
-    </div>
-  </div>
+  <th:block th:replace="fragment/footer" />
 </body>
 
 </html>

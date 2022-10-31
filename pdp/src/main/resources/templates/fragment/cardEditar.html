@@ -3,6 +3,6 @@
     <div class="card-body">
         <h5 class="card-title">[(${vaga.titulo})]</h5>
         <p class="card-text">[(${vaga.descricao})]</p>
-        <a th:href="'/vaga/' + ${vaga.id}" class="btn btn-outline-danger stretched-link">Aplicar-se</a>
+        <a th:href="'/vaga/editar/' + ${vaga.id}" class="btn btn-outline-danger stretched-link"><i class="bi bi-pencil-fill"></i> Editar</a>
     </div>
 </div>

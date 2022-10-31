@@ -57,14 +57,13 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             predicates.add(cb.isFalse(rootVaga.get("ativo")));
         }
 
-        /* Vaga não possui campo exclusao
         if(filtro.isExibirExcluidos() != null){
             if (!filtro.isExibirExcluidos()) {
-                predicates.add(cb.isNull(rootProduto.get("exclusao")));
+                predicates.add(cb.isNull(rootVaga.get("exclusao")));
             } else {
-                predicates.add(cb.isNotNull(rootProduto.get("exclusao")));
+                predicates.add(cb.isNotNull(rootVaga.get("exclusao")));
             }
-        }*/
+        }
 
         cq.select(rootVaga).where(
                 cb.and(predicates.toArray(new Predicate[]{}))

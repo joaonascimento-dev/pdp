@@ -1,5 +1,6 @@
 package br.fatec.pdp.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,7 +18,8 @@ public class Vaga {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // private Empresa empresa; FAZER
+    @ManyToOne
+    private Empresa empresa;
 
     private boolean aprovacao;
 
@@ -30,6 +33,8 @@ public class Vaga {
 
     @OneToMany(mappedBy = "vaga")
     private List<AlunoVaga> listAlunoVaga = new ArrayList<>();
+
+    private LocalDateTime exclusao;
 
     public Integer getId() {
         return id;
@@ -78,6 +83,24 @@ public class Vaga {
     public void setListAlunoVaga(List<AlunoVaga> listAlunoVaga) {
         this.listAlunoVaga = listAlunoVaga;
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public LocalDateTime getExclusao() {
+        return exclusao;
+    }
+
+    public void setExclusao(LocalDateTime exclusao) {
+        this.exclusao = exclusao;
+    }
+
+    
 
     
 }

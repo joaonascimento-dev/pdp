@@ -12,12 +12,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         
-        //Path uploadDir = Paths.get("./img"); //WINDOWS
-        Path uploadDir = Paths.get("img"); // LINUX
+        Path uploadDir = Paths.get("./img"); //WINDOWS
+        //Path uploadDir = Paths.get("img"); // LINUX
         String uploadPath = uploadDir.toFile().getAbsolutePath();
 
-        //registry.addResourceHandler("/img/**").addResourceLocations("file:/" + uploadPath + "/") //WINDOWS
-        registry.addResourceHandler("/img/**").addResourceLocations("file:///" + uploadPath + "/") //LINUX
+        registry.addResourceHandler("/img/**").addResourceLocations("file:/" + uploadPath + "/") //WINDOWS
+        //registry.addResourceHandler("/img/**").addResourceLocations("file:///" + uploadPath + "/") //LINUX
                 .setCachePeriod(3600*24);
         
     }

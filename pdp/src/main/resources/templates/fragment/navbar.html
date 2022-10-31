@@ -1,25 +1,13 @@
-<div class="container-fluid shadow-sm nav-secundario">
-  <div class="container">
-    <nav class="navbar navbar-expand row p-0" aria-label="Second navbar example">
-      <div class="container-fluid">
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <img src="/img/Logo.png" alt="Logo Trivagas" class="img-fluid">
+    </a>
 
-        <a class="navbar-brand" th:href="@{'/'}">
-          <img th:src="@{'/img/logo.png'}" alt="" class="navbar-logo" style="height: 50px;">
-        </a>
-
-        <div class="d-inline-flex ms-auto">
-          <a class="col-6 fs-6 btn btn-lg btn-outline-secondary border-0 rounded-0 flex-fill d-flex justify-content-center align-items-center"
-            th:href="${pessoaSessao != null} ? @{'/sair'} : @{'/login'}" data-bs-toggle="tooltip"
-            data-bs-placement="bottom" th:title="${pessoaSessao != null} ? ${pessoaSessao.nome} : 'Funcionário'">
-
-            <i class="bi-person-fill"></i> <span class="d-inline-block text-truncate"
-              th:text="${pessoaSessao != null} ? ${pessoaSessao.nome} : 'Funcionário'"></span>
-          </a>
-        </div>
-
-      </div>
-    </nav>
-  </div>
+    <div class="col-md-3 text-end">
+      <a class="btn btn-lg btn-danger me-2" href="/cadastroEscolher"><i class="bi bi-person-plus-fill"></i>
+        Cadastrar</a>
+      <a class="btn btn-lg btn-outline-danger" href="/login"><i class="bi bi-person-circle"></i> Login</a>
+    </div>
+  </header>
 </div>
-
-<script th:src="@{/app/js/tooltip.js}"></script>

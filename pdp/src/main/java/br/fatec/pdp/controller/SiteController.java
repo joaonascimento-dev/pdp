@@ -1,5 +1,6 @@
 package br.fatec.pdp.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,14 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.fatec.pdp.filtro.EmpresaFiltro;
 import br.fatec.pdp.filtro.UsuarioFiltro;
 import br.fatec.pdp.filtro.VagaFiltro;
 import br.fatec.pdp.model.Aluno;
 import br.fatec.pdp.model.AlunoVaga;
+import br.fatec.pdp.model.Empresa;
 import br.fatec.pdp.model.Usuario;
 import br.fatec.pdp.model.Vaga;
 import br.fatec.pdp.service.AlunoService;
 import br.fatec.pdp.service.AlunoVagaService;
+import br.fatec.pdp.service.EmpresaService;
 import br.fatec.pdp.service.UsuarioService;
 import br.fatec.pdp.service.VagaService;
 
@@ -39,6 +43,8 @@ public class SiteController {
     @Autowired
     private AlunoVagaService alunoVagaService;
 
+    @Autowired
+    private EmpresaService empresaService;
 
     @RequestMapping("/")
     public ModelAndView index(HttpSession session) {
@@ -146,5 +152,48 @@ public class SiteController {
 
         return mav;
     }
+    
+    @RequestMapping("/empresa/{id}")
+    public ModelAndView empresa(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("empresa");
 
+        Empresa empresa = empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(id).build());
+
+        mav.addObject("empresa", empresa);
+        mav.addObject("listVaga", empresa.getListVaga());
+
+        return mav;
+    }
+
+    @RequestMapping("/vaga/editar/{id}")
+    public ModelAndView vagaEditar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaEditar");
+
+        Vaga vaga = vagaService.findById(id);
+        mav.addObject("vaga", vaga);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/editarVaga/{id}")
+    public String vagaEditar(@PathVariable(name = "id") Integer id, String titulo, String descricao) {
+
+        Vaga vaga = vagaService.findById(id);
+        vaga.setTitulo(titulo.trim().equals("") ? vaga.getTitulo() : titulo.trim());
+        vaga.setDescricao(descricao.trim().equals("") ? vaga.getDescricao() : descricao.trim());
+        vagaService.save(vaga);
+
+        return "redirect:/empresa/" + vaga.getEmpresa().getId();
+    }
+
+    @PostMapping(value = "/excluirVaga/{id}")
+    public String vagaExcluir(@PathVariable(name = "id") Integer id) {
+
+        Vaga vaga = vagaService.findById(id);
+        vaga.setExclusao(LocalDateTime.now());
+        vagaService.save(vaga);
+
+        return "redirect:/empresa/" + vaga.getEmpresa().getId();
+    }
 }
