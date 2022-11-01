@@ -24,22 +24,68 @@
     <form action="index.html">
 
       <div class="row d-flex justify-content-center">
-        <div class="col-md-6 col-10">
+        <div class="col-md-7 col-10">
           <div class="card p-4">
-            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Cadastro da Empresa</p>
+            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Cadastro do Aluno</p>
 
             <div class="mb-3">
-              <label for="exampleInputNomeFan" class="form-label">Nome Fantasia:</label>
-              <input type="text" class="form-control" id="exampleInputNomeFan" >
+              <label for="exampleInputNomeAluno" class="form-label">Nome Aluno</label>
+              <input type="text" class="form-control" id="exampleInputNomeAluno" >
             </div>
-            <div class="mb-3">
-              <label for="exampleInputRazSoc" class="form-label">Razão Social</label>
-              <input type="text" class="form-control" id="exampleInputRazSoc">
+            
+            <div class="row align-items-center">
+              <div class="col-5 mb-3">
+                <label for="exampleInputNomeSocial" class="form-label">Nome Social</label>
+                <input type="text" class="form-control" id="exampleInputNomeSocial">
+              </div>
+              <div class="col-4 mb-3">
+                  <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
+                  <input type="date" class="form-control" id="exampleInputDataNasc" >
+              </div>
+              <div class="col-3 mb-3" >
+                <label for="exampleInputSexo" class="form-label">Sexo</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="1">Masculino</option>
+                  <option value="2">Feminino</option>
+                  <option value="3">Não Informar</option>
+                </select>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputCnpj" class="form-label">CNPJ</label>
-              <input type="text" class="form-control" id="exampleInputCnpj" >
+
+            <div class="row align-items-center">
+              <div class="col-4 mb-3">
+                <label for="exampleInputRG" class="form-label">RG</label>
+                <input type="text" class="form-control" id="exampleInputRG">
+              </div>
+              <div class="col-4 mb-3">
+                <label for="exampleInputCPF" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="exampleInputCPF">
+              </div>
+              <div class="col-4 mb-3">
+                <label for="exampleInputRA" class="form-label">RA</label>
+                <input type="text" class="form-control" id="exampleInputRA">
+              </div>
+              
+              <div class="row align-items-center">
+              <div class="col-6 mb-3">
+                <label for="exampleInputCurso" class="form-label">Cursos</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="1">Desenvolvimento de Software Multiplataforma</option>
+                  <option value="2">Gestão da Produção Industrial</option>
+                  <option value="3">Gestão Empresarial</option>
+                  <option value="4">Gestão da Tecnologia da Informação</option>
+                </select>
+              </div>
+              <div class="col-3 mb-3">
+                <label for="exampleInputDataInicio" class="form-label">Data Inicio</label>
+                <input type="date" class="form-control" id="exampleInputDataInicio">
+              </div>
+              <div class="col-3 mb-3">
+                <label for="exampleInputDataInicio" class="form-label">Data Final</label>
+                <input type="date" class="form-control" id="exampleInputDataInicio">
+              </div>
             </div>
+
             <div class="row align-items-center">
               <div class="col mb-3">
                   <label for="exampleInputTelefone" class="form-label">Telefone</label>
@@ -50,8 +96,9 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="exemplo@ex">
               </div>
             </div>
+
             <div class="row align-items-center">
-              <div class="col-10 mb-3">
+              <div class="col-7 mb-3">
                 <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
                 <input type="text" class="form-control" id="exampleInputLogradouro">
               </div>
@@ -59,12 +106,13 @@
                 <label for="exampleInputNumero" class="form-label">Numero</label>
                 <input type="text" class="form-control" id="exampleInputNumero" >
               </div>
-            </div>
-            <div class="row align-items-center">
               <div class="col-3 mb-3">
                 <label for="exampleInputCep" class="form-label">CEP</label>
                 <input type="text" class="form-control" id="exampleInputCep" placeholder="XXXXX-XXX">
               </div>
+            </div>
+
+            <div class="row align-items-center">
               <div class="col-4 mb-3">
                 <label for="exampleInputComplemento" class="form-label">Complemento</label>
                 <input type="text" class="form-control" id="exampleInputComplemento">
@@ -73,12 +121,14 @@
                 <label for="exampleInputBairro" class="form-label">Bairro</label>
                 <input type="email" class="form-control" id="exampleInputBairro">
               </div>
-            </div>
-            <div class="row align-items-center">
-              <div class="col mb-3">
+              <div class="col-3 mb-3">
                 <label for="exampleInputCidade" class="form-label">Cidade</label>
                 <input type="text" class="form-control" id="exampleInputCidade">
               </div>
+            </div>
+
+            <div class="row align-items-center">
+             
               <div class="col mb-3">
                 <label for="exampleInputEstado" class="form-label">Estado</label>
                 <select class="form-select" aria-label="Default select example">
@@ -115,8 +165,11 @@
                 <label for="exampleInputEstado" class="form-label">Pais</label>
                 <input type="text" class="form-control" id="exampleInputPais">
               </div>
+              <div class="col mb-3">
+                <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
+                <input type="text" class="form-control" id="exampleInputNacionalidade">
+              </div>
             </div>
-
             <br>  
             
             <button type="submit" class="btn btn-danger">Cadastrar</button>
@@ -128,7 +181,7 @@
     </form>
   </div>
 
-  <th:block th:replace="fragment/footer" />
+  <th:block th:replace="fragment/footer"/>
 </body>
 
 </html>
