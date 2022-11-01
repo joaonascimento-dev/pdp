@@ -2,6 +2,7 @@ package br.fatec.pdp.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -175,9 +176,34 @@ public class SiteController {
         Empresa empresa = empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(id).build());
 
         mav.addObject("empresa", empresa);
-        mav.addObject("listVaga", empresa.getListVaga());
+        mav.addObject("listVaga", empresa.getListVaga().stream().filter(v -> v.getExclusao() == null).collect(Collectors.toList()));
 
         return mav;
+    }
+
+    @RequestMapping("/vaga/cadastrar/{id}")
+    public ModelAndView vagaCadastrar(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaCadastrar");
+
+        Empresa empresa = empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(id).build());
+        mav.addObject("empresa", empresa);
+
+        Vaga vaga = new Vaga();
+        mav.addObject("vaga", vaga);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/cadastrarVaga/")
+    public String vagaCadastrar(String titulo, String descricao, Integer idEmpresa) {
+
+        Vaga vaga = new Vaga();
+        vaga.setTitulo(titulo.trim().equals("") ? vaga.getTitulo() : titulo.trim());
+        vaga.setDescricao(descricao.trim().equals("") ? vaga.getDescricao() : descricao.trim());
+        vaga.setEmpresa(empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(idEmpresa).build()));
+        vagaService.save(vaga);
+
+        return "redirect:/empresa/" + vaga.getEmpresa().getId();
     }
 
     @RequestMapping("/vaga/editar/{id}")

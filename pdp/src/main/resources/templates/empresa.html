@@ -47,7 +47,7 @@
               <p class="fs-4 mt-4">Suas Vagas</p>
             </div>
             <div class="text-end">
-              <a href="#" class="btn btn-danger"><i class="bi bi-plus-circle"></i> Nova Vaga</a>
+              <a th:href="@{'/vaga/cadastrar/' + ${empresa.id}}" class="btn btn-danger"><i class="bi bi-plus-circle"></i> Nova Vaga</a>
             </div>
       
             <div class="row row-cols-md-3 row-cols-1">
