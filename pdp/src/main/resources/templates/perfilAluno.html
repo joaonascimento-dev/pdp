@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivagas - Cadastro da Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container-fluid bg-danger pt-3" style="height: 1200px;">
+    <form action="index.html">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-10 mb-3">
+          <div class="card p-4 rounded-4" >
+            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Leonardo Rodrigues Dezoti Ferraz</p>
+          </div>
+        </div>
+        <div class="col-md-8 col-10 mb-3">
+          <div class="card p-4 rounded-5" >
+            <p class="fs-4 text-center">Informações Pessoais</p>
+            <div class="col-md-11 mb-4 mx-auto border border-3 rounded-5" style="background-color: #efece9;">
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputNomeSocial" class="form-label">CPF</label>
+                  <input type="text" class="form-control" id="exampleInputCPF" readonly>
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputDataNasc" class="form-label">RG</label>
+                  <input type="text" class="form-control" id="exampleInputRG" readonly>
+                </div>
+                <div class="col-4 mb-3" >
+                  <label for="exampleInputSexo" class="form-label">RA</label>
+                  <input type="text" class="form-control" id="exampleInputRA" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-6 mb-3">
+                  <label for="exampleInputNomeSocial" class="form-label">Nome Social</label>
+                  <input type="text" class="form-control" id="exampleInputNomeSocial" readonly>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
+                  <input type="text" class="form-control" id="exampleInputDataNasc" readonly>
+                </div>
+                <div class="col-3 mb-3" >
+                  <label for="exampleInputSexo" class="form-label">Sexo</label>
+                  <input type="text" class="form-control" id="exampleInputSexo" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-6 mb-3">
+                  <label for="exampleInputEmail" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="exampleInputEmail" readonly>
+                </div>
+                <div class="col-6 mb-3">
+                  <label for="exampleInputTelefone" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="exampleInputTelefone" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-7 mb-3">
+                  <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" id="exampleInputLogradouro" readonly>
+                </div>
+                <div class="col-2 mb-3 ">
+                  <label for="exampleInputNumero" class="form-label">Numero</label>
+                  <input type="text" class="form-control" id="exampleInputNumero" readonly>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCep" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="exampleInputCep" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputComplemento" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="exampleInputComplemento" readonly>
+                </div>
+                <div class="col-5 mb-3">
+                  <label for="exampleInputBairro" class="form-label">Bairro</label>
+                  <input type="email" class="form-control" id="exampleInputBairro" readonly>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="exampleInputCidade" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputEstado" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="exampleInputEstado" readonly>
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputPais" class="form-label">Pais</label>
+                  <input type="text" class="form-control" id="exampleInputPais" readonly>
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
+                  <input type="text" class="form-control" id="exampleInputNacionalidade" readonly>
+                </div>
+              </div>
+              <div class="m-1 row align-items-center col-2 mb-3 mx-auto"> 
+                <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-person-plus-fill"></i>Editar</a>
+              </div>
+            </div>
+          </div> 
+        </div>  
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Expêriencias</p>
+              <div class="col-md-11 mb-4 mx-auto border border-3 rounded-5" style="background-color: #efece9;">  
+                <p class="m-1 mx-5" style="font-size: 18px;"><strong>Estagiário de TI</strong></p> <!--Titulo da vaga-->
+                <p class="m-1 mx-2" style="font-size: 18px;">Laboratório Cristalia - Estágio</p> <!--Empresa e Vaga-->
+                <p class="m-1 mx-2" style="font-size: 18px;">Setembro de 2022 - Atualmente</p> <!--Data-->
+                <p class="m-1 mx-2" style="font-size: 18px;">Itapira - São Paulo, Brasil</p> <!--Localidade-->
+              </div>
+            </div> 
+          </div>
+      </div>
+
+    </form>
+  </div>
+
+  <th:block th:replace="fragment/footer" />
+</body>
+
+</html>
