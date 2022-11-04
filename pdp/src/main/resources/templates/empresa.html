@@ -26,7 +26,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-10">
           <div class="card p-4">
-            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i> Empresa - Perfil</p>
+            <p class="fs-4 text-center"><i class="bi bi-building"></i> Empresa - Perfil</p>
 
             <div class="row">
               <div class="col mb-3">
@@ -47,9 +47,10 @@
               <p class="fs-4 mt-4">Suas Vagas</p>
             </div>
             <div class="text-end">
-              <a th:href="@{'/vaga/cadastrar/' + ${empresa.id}}" class="btn btn-danger"><i class="bi bi-plus-circle"></i> Nova Vaga</a>
+              <a th:href="@{'/vaga/cadastrar/' + ${empresa.id}}" class="btn btn-danger"><i
+                  class="bi bi-plus-circle"></i> Nova Vaga</a>
             </div>
-      
+
             <div class="row row-cols-md-3 row-cols-1">
               <div th:each="vaga : ${listVaga}" class="col mb-2">
                 <th:block th:replace="@{/fragment/cardEditar}" />
@@ -59,12 +60,9 @@
           </div>
         </div>
       </div>
-
-      
-
-    </form>
   </div>
-
+  </form>
+  </div>
   <th:block th:replace="fragment/footer" />
 </body>
 

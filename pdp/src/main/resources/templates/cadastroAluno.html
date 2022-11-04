@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+  <link th:href="@{/app/style.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -20,9 +20,8 @@
 
   <th:block th:replace="fragment/navbar" />
 
-  <div class="container-fluid bg-danger pt-5" style="height: 900px;">
+  <div class="container-fluid bg-danger pt-5">
     <form action="index.html">
-
       <div class="row d-flex justify-content-center">
         <div class="col-md-7 col-10">
           <div class="card p-4">
@@ -30,19 +29,19 @@
 
             <div class="mb-3">
               <label for="exampleInputNomeAluno" class="form-label">Nome Aluno</label>
-              <input type="text" class="form-control" id="exampleInputNomeAluno" >
+              <input type="text" class="form-control" id="exampleInputNomeAluno">
             </div>
-            
+
             <div class="row align-items-center">
               <div class="col-5 mb-3">
                 <label for="exampleInputNomeSocial" class="form-label">Nome Social</label>
                 <input type="text" class="form-control" id="exampleInputNomeSocial">
               </div>
               <div class="col-4 mb-3">
-                  <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
-                  <input type="date" class="form-control" id="exampleInputDataNasc" >
+                <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
+                <input type="date" class="form-control" id="exampleInputDataNasc">
               </div>
-              <div class="col-3 mb-3" >
+              <div class="col-3 mb-3">
                 <label for="exampleInputSexo" class="form-label">Sexo</label>
                 <select class="form-select" aria-label="Default select example">
                   <option value="1">Masculino</option>
@@ -65,122 +64,120 @@
                 <label for="exampleInputRA" class="form-label">RA</label>
                 <input type="text" class="form-control" id="exampleInputRA">
               </div>
-              
-              <div class="row align-items-center">
-              <div class="col-6 mb-3">
-                <label for="exampleInputCurso" class="form-label">Cursos</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option value="1">Desenvolvimento de Software Multiplataforma</option>
-                  <option value="2">Gestão da Produção Industrial</option>
-                  <option value="3">Gestão Empresarial</option>
-                  <option value="4">Gestão da Tecnologia da Informação</option>
-                </select>
-              </div>
-              <div class="col-3 mb-3">
-                <label for="exampleInputDataInicio" class="form-label">Data Inicio</label>
-                <input type="date" class="form-control" id="exampleInputDataInicio">
-              </div>
-              <div class="col-3 mb-3">
-                <label for="exampleInputDataInicio" class="form-label">Data Final</label>
-                <input type="date" class="form-control" id="exampleInputDataInicio">
-              </div>
-            </div>
 
-            <div class="row align-items-center">
-              <div class="col mb-3">
+              <div class="row align-items-center">
+                <div class="col-6 mb-3">
+                  <label for="exampleInputCurso" class="form-label">Cursos</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1">Desenvolvimento de Software Multiplataforma</option>
+                    <option value="2">Gestão da Produção Industrial</option>
+                    <option value="3">Gestão Empresarial</option>
+                    <option value="4">Gestão da Tecnologia da Informação</option>
+                  </select>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataInicio" class="form-label">Data Inicio</label>
+                  <input type="date" class="form-control" id="exampleInputDataInicio">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataInicio" class="form-label">Data Final</label>
+                  <input type="date" class="form-control" id="exampleInputDataInicio">
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col mb-3">
                   <label for="exampleInputTelefone" class="form-label">Telefone</label>
                   <input type="text" class="form-control" id="exampleInputTelefone" placeholder="(XX) X XXXX-XXXX">
+                </div>
+                <div class="col mb-3">
+                  <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="exemplo@ex">
+                </div>
               </div>
-              <div class="col mb-3" >
-                <label for="exampleInputEmail1" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="exemplo@ex">
-              </div>
-            </div>
 
-            <div class="row align-items-center">
-              <div class="col-7 mb-3">
-                <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
-                <input type="text" class="form-control" id="exampleInputLogradouro">
+              <div class="row align-items-center">
+                <div class="col-7 mb-3">
+                  <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" id="exampleInputLogradouro">
+                </div>
+                <div class="col-2 mb-3 ">
+                  <label for="exampleInputNumero" class="form-label">Numero</label>
+                  <input type="text" class="form-control" id="exampleInputNumero">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCep" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="exampleInputCep" placeholder="XXXXX-XXX">
+                </div>
               </div>
-              <div class="col-2 mb-3 ">
-                <label for="exampleInputNumero" class="form-label">Numero</label>
-                <input type="text" class="form-control" id="exampleInputNumero" >
-              </div>
-              <div class="col-3 mb-3">
-                <label for="exampleInputCep" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="exampleInputCep" placeholder="XXXXX-XXX">
-              </div>
-            </div>
 
-            <div class="row align-items-center">
-              <div class="col-4 mb-3">
-                <label for="exampleInputComplemento" class="form-label">Complemento</label>
-                <input type="text" class="form-control" id="exampleInputComplemento">
+              <div class="row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputComplemento" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="exampleInputComplemento">
+                </div>
+                <div class="col-5 mb-3">
+                  <label for="exampleInputBairro" class="form-label">Bairro</label>
+                  <input type="email" class="form-control" id="exampleInputBairro">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="exampleInputCidade">
+                </div>
               </div>
-              <div class="col-5 mb-3">
-                <label for="exampleInputBairro" class="form-label">Bairro</label>
-                <input type="email" class="form-control" id="exampleInputBairro">
-              </div>
-              <div class="col-3 mb-3">
-                <label for="exampleInputCidade" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="exampleInputCidade">
-              </div>
-            </div>
 
-            <div class="row align-items-center">
-             
-              <div class="col mb-3">
-                <label for="exampleInputEstado" class="form-label">Estado</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option value="1">Acre</option>
-                  <option value="2">Alagoas</option>
-                  <option value="3">Amapá</option>
-                  <option value="4">Amazonas</option>
-                  <option value="5">Bahia</option>
-                  <option value="6">Ceará</option>
-                  <option value="7">Distrito Federal</option>
-                  <option value="8">Espírito Santo</option>
-                  <option value="9">Goiás</option>
-                  <option value="10">Maranhão</option>
-                  <option value="11">Mato Grosso</option>
-                  <option value="12">Mato Grosso do Sul</option>
-                  <option value="13">Minas Gerais</option>
-                  <option value="14">Pará</option>
-                  <option value="15">Paraíba</option>
-                  <option value="16">Paraná</option>
-                  <option value="17">Pernambuco</option>
-                  <option value="18">Piauí</option>
-                  <option value="19">Rio de Janeiro</option>
-                  <option value="20">Rio Grande do Norte</option>
-                  <option value="21">Rio Grande do Sul</option>
-                  <option value="22">Rondônia</option>
-                  <option value="23">Roraima</option>
-                  <option value="24">Santa Catarina</option>
-                  <option value="25">São Paulo</option>
-                  <option value="26">Sergipe</option>
-                  <option value="27">Tocantins</option>
-                </select>
+              <div class="row align-items-center">
+
+                <div class="col mb-3">
+                  <label for="exampleInputEstado" class="form-label">Estado</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1">Acre</option>
+                    <option value="2">Alagoas</option>
+                    <option value="3">Amapá</option>
+                    <option value="4">Amazonas</option>
+                    <option value="5">Bahia</option>
+                    <option value="6">Ceará</option>
+                    <option value="7">Distrito Federal</option>
+                    <option value="8">Espírito Santo</option>
+                    <option value="9">Goiás</option>
+                    <option value="10">Maranhão</option>
+                    <option value="11">Mato Grosso</option>
+                    <option value="12">Mato Grosso do Sul</option>
+                    <option value="13">Minas Gerais</option>
+                    <option value="14">Pará</option>
+                    <option value="15">Paraíba</option>
+                    <option value="16">Paraná</option>
+                    <option value="17">Pernambuco</option>
+                    <option value="18">Piauí</option>
+                    <option value="19">Rio de Janeiro</option>
+                    <option value="20">Rio Grande do Norte</option>
+                    <option value="21">Rio Grande do Sul</option>
+                    <option value="22">Rondônia</option>
+                    <option value="23">Roraima</option>
+                    <option value="24">Santa Catarina</option>
+                    <option value="25">São Paulo</option>
+                    <option value="26">Sergipe</option>
+                    <option value="27">Tocantins</option>
+                  </select>
+                </div>
+                <div class="col mb-3">
+                  <label for="exampleInputEstado" class="form-label">Pais</label>
+                  <input type="text" class="form-control" id="exampleInputPais">
+                </div>
+                <div class="col mb-3">
+                  <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
+                  <input type="text" class="form-control" id="exampleInputNacionalidade">
+                </div>
               </div>
-              <div class="col mb-3">
-                <label for="exampleInputEstado" class="form-label">Pais</label>
-                <input type="text" class="form-control" id="exampleInputPais">
-              </div>
-              <div class="col mb-3">
-                <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
-                <input type="text" class="form-control" id="exampleInputNacionalidade">
-              </div>
+              <br>
+
+              <button type="submit" class="btn btn-danger">Cadastrar</button>
+
             </div>
-            <br>  
-            
-            <button type="submit" class="btn btn-danger">Cadastrar</button>
-            
           </div>
         </div>
-      </div>
-
     </form>
   </div>
-
   <th:block th:replace="fragment/footer"/>
 </body>
 

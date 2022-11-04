@@ -33,7 +33,7 @@ public class Aluno {
     private String cpf;
     private String ra;
     private String nome;
-    private String nome_social;
+    private String nomeSocial;
     
     @Column(columnDefinition = "varchar(255) default 'Fatec Itapira - \"Dr. Ogari de Castro Pacheco\"' ")
     private String instituição;
@@ -123,12 +123,12 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getNome_social() {
-        return nome_social;
+    public String getNomeSocial() {
+        return nomeSocial;
     }
 
-    public void setNome_social(String nome_social) {
-        this.nome_social = nome_social;
+    public void setNomeSocial(String nomeSocial) {
+        this.nomeSocial = nomeSocial;
     }
 
     public String getInstituição() {

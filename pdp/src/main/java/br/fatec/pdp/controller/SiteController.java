@@ -168,6 +168,15 @@ public class SiteController {
         return mav;
     }
 
+    @RequestMapping("/perfilAluno/{id}")
+    public ModelAndView perfilAluno(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("perfilAluno");
+
+        Aluno aluno = alunoService.findById(id);
+        mav.addObject("aluno", aluno);
+        return mav;
+    }
+
     
     @RequestMapping("/empresa/{id}")
     public ModelAndView empresa(@PathVariable(name = "id") Integer id, HttpSession session) {

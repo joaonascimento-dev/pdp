@@ -20,13 +20,13 @@
 
   <th:block th:replace="fragment/navbar" />
 
-  <div class="container-fluid bg-danger pt-3" style="height: 1200px;">
+  <div class="container-fluid bg-danger pt-3">
     <form action="index.html">
 
       <div class="row d-flex justify-content-center">
         <div class="col-md-5 col-10 mb-3">
           <div class="card p-4 rounded-4" >
-            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Leonardo Rodrigues Dezoti Ferraz</p>
+            <p class="fs-4 text-center m-0"><i class="bi bi-person-circle"></i>[(${aluno.nome})]</p>
           </div>
         </div>
         <div class="col-md-8 col-10 mb-3">
@@ -36,85 +36,85 @@
               <div class="m-1 row align-items-center">
                 <div class="col-4 mb-3">
                   <label for="exampleInputNomeSocial" class="form-label">CPF</label>
-                  <input type="text" class="form-control" id="exampleInputCPF" readonly>
+                  <input type="text" class="form-control" id="exampleInputCPF" readonly th:value="${aluno.cpf}">
                 </div>
                 <div class="col-4 mb-3">
                   <label for="exampleInputDataNasc" class="form-label">RG</label>
-                  <input type="text" class="form-control" id="exampleInputRG" readonly>
+                  <input type="text" class="form-control" id="exampleInputRG" readonly th:value="${aluno.rg}">
                 </div>
                 <div class="col-4 mb-3" >
                   <label for="exampleInputSexo" class="form-label">RA</label>
-                  <input type="text" class="form-control" id="exampleInputRA" readonly>
+                  <input type="text" class="form-control" id="exampleInputRA" readonly th:value="${aluno.ra}">
                 </div>
               </div>
               <div class="m-1 row align-items-center">
                 <div class="col-6 mb-3">
                   <label for="exampleInputNomeSocial" class="form-label">Nome Social</label>
-                  <input type="text" class="form-control" id="exampleInputNomeSocial" readonly>
+                  <input type="text" class="form-control" id="exampleInputNomeSocial" readonly th:value="${aluno.nomeSocial}">
                 </div>
                 <div class="col-3 mb-3">
                   <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
-                  <input type="text" class="form-control" id="exampleInputDataNasc" readonly>
+                  <input type="text" class="form-control" id="exampleInputDataNasc" readonly th:value="${aluno.dataNasc}">
                 </div>
                 <div class="col-3 mb-3" >
                   <label for="exampleInputSexo" class="form-label">Sexo</label>
-                  <input type="text" class="form-control" id="exampleInputSexo" readonly>
+                  <input type="text" class="form-control" id="exampleInputSexo" readonly th:value="${aluno.sexo}">
                 </div>
               </div>
               <div class="m-1 row align-items-center">
                 <div class="col-6 mb-3">
                   <label for="exampleInputEmail" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="exampleInputEmail" readonly>
+                  <input type="text" class="form-control" id="exampleInputEmail" readonly th:value="${aluno.email}">
                 </div>
                 <div class="col-6 mb-3">
                   <label for="exampleInputTelefone" class="form-label">Telefone</label>
-                  <input type="text" class="form-control" id="exampleInputTelefone" readonly>
+                  <input type="text" class="form-control" id="exampleInputTelefone" readonly th:value="${aluno.telefone}">
                 </div>
               </div>
               <div class="m-1 row align-items-center">
                 <div class="col-7 mb-3">
                   <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
-                  <input type="text" class="form-control" id="exampleInputLogradouro" readonly>
+                  <input type="text" class="form-control" id="exampleInputLogradouro" readonly th:value="${aluno.logradouro}">
                 </div>
                 <div class="col-2 mb-3 ">
                   <label for="exampleInputNumero" class="form-label">Numero</label>
-                  <input type="text" class="form-control" id="exampleInputNumero" readonly>
+                  <input type="text" class="form-control" id="exampleInputNumero" readonly th:value="${aluno.numero}">
                 </div>
                 <div class="col-3 mb-3">
                   <label for="exampleInputCep" class="form-label">CEP</label>
-                  <input type="text" class="form-control" id="exampleInputCep" readonly>
+                  <input type="text" class="form-control" id="exampleInputCep" readonly th:value="${aluno.cep}">
                 </div>
               </div>
               <div class="m-1 row align-items-center">
                 <div class="col-4 mb-3">
                   <label for="exampleInputComplemento" class="form-label">Complemento</label>
-                  <input type="text" class="form-control" id="exampleInputComplemento" readonly>
+                  <input type="text" class="form-control" id="exampleInputComplemento" readonly th:value="${aluno.complemento}">
                 </div>
                 <div class="col-5 mb-3">
                   <label for="exampleInputBairro" class="form-label">Bairro</label>
-                  <input type="email" class="form-control" id="exampleInputBairro" readonly>
+                  <input type="email" class="form-control" id="exampleInputBairro" readonly th:value="${aluno.bairro}">
                 </div>
                 <div class="col-3 mb-3">
                   <label for="exampleInputCidade" class="form-label">Cidade</label>
-                  <input type="text" class="form-control" id="exampleInputCidade" readonly>
+                  <input type="text" class="form-control" id="exampleInputCidade" readonly th:value="${aluno.cidade}">
                 </div>
               </div>
               <div class="m-1 row align-items-center">
                 <div class="col-4 mb-3">
                   <label for="exampleInputEstado" class="form-label">Estado</label>
-                  <input type="text" class="form-control" id="exampleInputEstado" readonly>
+                  <input type="text" class="form-control" id="exampleInputEstado" readonly th:value="${aluno.estado}">
                 </div>
                 <div class="col-4 mb-3">
                   <label for="exampleInputPais" class="form-label">Pais</label>
-                  <input type="text" class="form-control" id="exampleInputPais" readonly>
+                  <input type="text" class="form-control" id="exampleInputPais" readonly th:value="${aluno.pais}">
                 </div>
                 <div class="col-4 mb-3">
                   <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
-                  <input type="text" class="form-control" id="exampleInputNacionalidade" readonly>
+                  <input type="text" class="form-control" id="exampleInputNacionalidade" readonly th:value="${aluno.nacionalidade}">
                 </div>
               </div>
               <div class="m-1 row align-items-center col-2 mb-3 mx-auto"> 
-                <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-person-plus-fill"></i>Editar</a>
+                <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-pencil-fill"></i> Editar</a>
               </div>
             </div>
           </div> 
@@ -122,11 +122,85 @@
           <div class="col-md-8 col-10 mb-3">
             <div class="card p-4 rounded-5" >
               <p class="fs-4 text-center">Expêriencias</p>
-              <div class="col-md-11 mb-4 mx-auto border border-3 rounded-5" style="background-color: #efece9;">  
-                <p class="m-1 mx-5" style="font-size: 18px;"><strong>Estagiário de TI</strong></p> <!--Titulo da vaga-->
-                <p class="m-1 mx-2" style="font-size: 18px;">Laboratório Cristalia - Estágio</p> <!--Empresa e Vaga-->
-                <p class="m-1 mx-2" style="font-size: 18px;">Setembro de 2022 - Atualmente</p> <!--Data-->
-                <p class="m-1 mx-2" style="font-size: 18px;">Itapira - São Paulo, Brasil</p> <!--Localidade-->
+              <div class="row align-items-center">
+                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                  <h5 class="mt-1 mb-1 mx-5"><strong>Estagiário de TI</strong></h5>
+                  <p class="m-1 mx-3">Laboratório Cristália - Estagio</p>
+                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
+                  <p class="m-1 mx-3">Itapira, São Paulo, Brasil</p>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
+                  </div>
+                </div>
+                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                  <h5 class="mt-1 mb-1 mx-5"><strong>Estagiário de TI</strong></h5>
+                  <p class="m-1 mx-3">Laboratório Cristália - Estagio</p>
+                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
+                  <p class="m-1 mx-3">Itapira, São Paulo, Brasil</p>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
+                  </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-danger mb-2"><i
+                      class="bi bi-plus-circle"></i> Adicionar Experiência</button>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Formações</p>
+              <div class="row align-items-center">
+                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                  <h6 class="mt-1 mb-1 mx-5"><strong>Fatec Itapira "Dr Ogari de Castro Pacheco"</strong></h6>
+                  <p class="m-1 mx-3">Tecnologo - Desenvolvimento de Software Multiplataforma</p>
+                  <p class="m-1 mx-3">Fevereiro 2022 - Atualmente</p>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
+                  </div>
+                </div>
+                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                  <h6 class="mt-1 mb-1 mx-5"><strong>Fatec Itapira "Dr Ogari de Castro Pacheco"</strong></h6>
+                  <p class="m-1 mx-3">Tecnologo - Desenvolvimento de Software Multiplataforma</p>
+                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
+                  </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-danger mb-2"><i
+                      class="bi bi-plus-circle"></i> Adicionar Formações</button>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Habilidades</p>
+              <div class="row row-cols-3 align-items-center">
+                <div class="col">
+                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                    <p class="m-1">Suporte ao Cliente<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
+                  </div>
+                </div> 
+                <div class="col">
+                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center" style="background-color: #efece9;">  
+                    <p class="m-1">MS-Office<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center " style="background-color: #efece9;">  
+                    <p class="m-1">MS-Office<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-danger mb-2"><i
+                  class="bi bi-plus-circle"></i> Adicionar Formações</button>
               </div>
             </div> 
           </div>
