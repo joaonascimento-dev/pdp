@@ -174,6 +174,10 @@ public class SiteController {
 
         Aluno aluno = alunoService.findById(id);
         mav.addObject("aluno", aluno);
+
+        mav.addObject("listExperiencia", aluno.getListExperiencia());
+        mav.addObject("listFormacao", aluno.getListFormacao());
+        mav.addObject("listHabilidade", aluno.getListHabilidade());
         return mav;
     }
 

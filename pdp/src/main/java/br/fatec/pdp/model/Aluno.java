@@ -44,8 +44,6 @@ public class Aluno {
     private String email;
     private LocalDateTime dataNasc;
     private String sexo;
-    private String nomePai;
-    private String nomeMae;
     private String nacionalidade;
     private String logradouro;
     private String cidade;
@@ -58,6 +56,15 @@ public class Aluno {
 
     @OneToMany(mappedBy = "aluno")
     private List<AlunoVaga> listAlunoVaga = new ArrayList<>();
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Experiencia> listExperiencia = new ArrayList<>();
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Formacao> listFormacao = new ArrayList<>();
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Habilidade> listHabilidade = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -187,22 +194,6 @@ public class Aluno {
         this.sexo = sexo;
     }
 
-    public String getNomePai() {
-        return nomePai;
-    }
-
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-
-    public String getNomeMae() {
-        return nomeMae;
-    }
-
-    public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
-    }
-
     public String getNacionalidade() {
         return nacionalidade;
     }
@@ -282,6 +273,32 @@ public class Aluno {
     public void setListAlunoVaga(List<AlunoVaga> listAlunoVaga) {
         this.listAlunoVaga = listAlunoVaga;
     }
-    
 
+    public List<Experiencia> getListExperiencia() {
+        return listExperiencia;
+    }
+
+    public void setListExperiencia(List<Experiencia> listExperiencia) {
+        this.listExperiencia = listExperiencia;
+    }
+
+    public List<Formacao> getListFormacao() {
+        return listFormacao;
+    }
+
+    public void setListFormacao(List<Formacao> listFormacao) {
+        this.listFormacao = listFormacao;
+    }
+
+    public List<Habilidade> getListHabilidade() {
+        return listHabilidade;
+    }
+
+    public void setListHabilidade(List<Habilidade> listHabilidade) {
+        this.listHabilidade = listHabilidade;
+    }
+
+    
+    
+    
 }

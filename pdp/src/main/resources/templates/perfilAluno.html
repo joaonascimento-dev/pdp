@@ -113,7 +113,7 @@
                   <input type="text" class="form-control" id="exampleInputNacionalidade" readonly th:value="${aluno.nacionalidade}">
                 </div>
               </div>
-              <div class="m-1 row align-items-center col-2 mb-3 mx-auto"> 
+              <div class= "text-end me-3 mb-3"> 
                 <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-pencil-fill"></i> Editar</a>
               </div>
             </div>
@@ -122,58 +122,30 @@
           <div class="col-md-8 col-10 mb-3">
             <div class="card p-4 rounded-5" >
               <p class="fs-4 text-center">Expêriencias</p>
-              <div class="row align-items-center">
-                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                  <h5 class="mt-1 mb-1 mx-5"><strong>Estagiário de TI</strong></h5>
-                  <p class="m-1 mx-3">Laboratório Cristália - Estagio</p>
-                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
-                  <p class="m-1 mx-3">Itapira, São Paulo, Brasil</p>
-                  <div class="text-end">
-                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
-                  </div>
+              <div class="row row-cols-2 align-items-center">
+                <div th:each="experiencia : ${listExperiencia}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardExperiencia}" />
                 </div>
-                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                  <h5 class="mt-1 mb-1 mx-5"><strong>Estagiário de TI</strong></h5>
-                  <p class="m-1 mx-3">Laboratório Cristália - Estagio</p>
-                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
-                  <p class="m-1 mx-3">Itapira, São Paulo, Brasil</p>
-                  <div class="text-end">
-                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
-                  </div>
-                </div>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-danger mb-2"><i
-                      class="bi bi-plus-circle"></i> Adicionar Experiência</button>
+              </div> 
+              <div class="text-end">
+                <button type="submit" class="btn btn-danger mb-2 mt-2"><i
+                  class="bi bi-plus-circle"></i> Adicionar Experiência</button>
                 </div>
               </div>
-            </div> 
           </div>
 
           <div class="col-md-8 col-10 mb-3">
             <div class="card p-4 rounded-5" >
               <p class="fs-4 text-center">Formações</p>
-              <div class="row align-items-center">
-                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                  <h6 class="mt-1 mb-1 mx-5"><strong>Fatec Itapira "Dr Ogari de Castro Pacheco"</strong></h6>
-                  <p class="m-1 mx-3">Tecnologo - Desenvolvimento de Software Multiplataforma</p>
-                  <p class="m-1 mx-3">Fevereiro 2022 - Atualmente</p>
-                  <div class="text-end">
-                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
-                  </div>
-                </div>
-                <div class="col-md-5 mb-4 mx-auto border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                  <h6 class="mt-1 mb-1 mx-5"><strong>Fatec Itapira "Dr Ogari de Castro Pacheco"</strong></h6>
-                  <p class="m-1 mx-3">Tecnologo - Desenvolvimento de Software Multiplataforma</p>
-                  <p class="m-1 mx-3">Setembro 2022 - Atualmente</p>
-                  <div class="text-end">
-                    <button type="submit" class="btn btn-sm btn-danger mb-2"><i class="bi bi-pencil-fill"></i> Editar</button>
-                  </div>
-                </div>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-danger mb-2"><i
-                      class="bi bi-plus-circle"></i> Adicionar Formações</button>
+              <div class="row row-cols-2 align-items-center">
+                <div th:each="formacao : ${listFormacao}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardFormacao}" />
                 </div>
               </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-danger mb-2 mt-2"><i
+                  class="bi bi-plus-circle"></i> Adicionar Formações</button>
+            </div>
             </div> 
           </div>
 
@@ -181,25 +153,12 @@
             <div class="card p-4 rounded-5" >
               <p class="fs-4 text-center">Habilidades</p>
               <div class="row row-cols-3 align-items-center">
-                <div class="col">
-                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                    <p class="m-1">Suporte ao Cliente<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
-                  </div>
-                </div> 
-                <div class="col">
-                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center" style="background-color: #efece9;">  
-                    <p class="m-1">MS-Office<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
-                  </div>
+                <div th:each="habilidade : ${listHabilidade}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardHabilidade}" />
                 </div>
-                <div class="col">
-                  <div class="mx-2 mb-4 border border-3 rounded-5 text-center " style="background-color: #efece9;">  
-                    <p class="m-1">MS-Office<i class="bi bi-x-lg ms-2 link-danger" onclick="alert('Salve')"></i></p>
-                  </div>
-                </div>
-                
               </div>
               <div class="text-end">
-                <button type="submit" class="btn btn-danger mb-2"><i
+                <button type="submit" class="btn btn-danger mb-2 mt-2"><i
                   class="bi bi-plus-circle"></i> Adicionar Formações</button>
               </div>
             </div> 
