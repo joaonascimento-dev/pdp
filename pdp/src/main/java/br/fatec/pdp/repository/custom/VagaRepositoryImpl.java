@@ -28,7 +28,7 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
     EntityManager em;
 
     @Override
-    public Page<Vaga> findByCriteria(Pageable pageable, BaseFiltro filtro){
+    public Page<Vaga> findByCriteria(Pageable pageable, BaseFiltro filtro) {
         return PageUtil.create(pageable, (ArrayList<Vaga>) findByCriteria(filtro));
     }
 
@@ -45,10 +45,14 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             predicates.add(cb.equal(rootVaga.get("id"), vagaFiltro.getId()));
         }
 
-        if (vagaFiltro.isAprovacao()) {
-            predicates.add(cb.isTrue(rootVaga.get("aprovacao")));
+        if (vagaFiltro.isAprovacao() != null) {
+            if (vagaFiltro.isAprovacao()) {
+                predicates.add(cb.isTrue(rootVaga.get("aprovacao")));
+            } else {
+                predicates.add(cb.isFalse(rootVaga.get("aprovacao")));
+            }
         } else {
-            predicates.add(cb.isFalse(rootVaga.get("aprovacao")));
+            predicates.add(cb.isNull(rootVaga.get("aprovacao")));
         }
 
         if (vagaFiltro.isAtivo()) {
@@ -57,7 +61,7 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             predicates.add(cb.isFalse(rootVaga.get("ativo")));
         }
 
-        if(filtro.isExibirExcluidos() != null){
+        if (filtro.isExibirExcluidos() != null) {
             if (!filtro.isExibirExcluidos()) {
                 predicates.add(cb.isNull(rootVaga.get("exclusao")));
             } else {
@@ -66,10 +70,9 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
         }
 
         cq.select(rootVaga).where(
-                cb.and(predicates.toArray(new Predicate[]{}))
-        );
+                cb.and(predicates.toArray(new Predicate[] {})));
 
-        //Ordem
+        // Ordem
         List<Order> o = new ArrayList<>();
         if (filtro.getListOrdem().isEmpty()) {
             o.add(cb.desc(rootVaga.get("id")));
@@ -78,8 +81,7 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             for (Map.Entry<VagaFiltro.OrdemEnum, String> ordem : filtro.getListOrdem()) {
                 o.add(ordem.getKey().equals(VagaFiltro.OrdemEnum.ASC)
                         ? cb.asc(rootVaga.get(ordem.getValue()))
-                        : cb.desc(rootVaga.get(ordem.getValue()))
-                );
+                        : cb.desc(rootVaga.get(ordem.getValue())));
             }
         }
 
@@ -92,5 +94,5 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
 
         return query.getResultList();
     }
-    
+
 }

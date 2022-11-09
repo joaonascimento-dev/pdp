@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aprovar Vaga</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container-fluid bg-danger py-5">
+    <form action="index.html">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="card p-4">
+            <p class="fs-4 text-center"><i class="bi bi-briefcase"></i> Aprovar Vagas</p>
+
+            
+            <div class="row row-cols-md-3 row-cols-1">
+              <div th:each="vaga : ${listVaga}" class="col mb-2">
+                <th:block th:replace="@{/admin/fragment/cardEditar}" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+  </form>
+  </div>
+  <th:block th:replace="fragment/footer" />
+</body>
+
+</html>

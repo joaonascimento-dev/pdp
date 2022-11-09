@@ -2,12 +2,12 @@ package br.fatec.pdp.filtro;
 
 public class VagaFiltro extends BaseFiltro {
     private final String empresa;
-    private final boolean aprovacao;
+    private final Boolean aprovacao;
     private final boolean ativo;
     
     public static class Builder extends BaseFiltro.Builder {
         private String empresa = null;
-        private boolean aprovacao = true;
+        private Boolean aprovacao = true;
         private boolean ativo = true;
 
         public Builder(/* parâmetros obrigatórios */) {
@@ -19,7 +19,7 @@ public class VagaFiltro extends BaseFiltro {
             return this;
         }
 
-        public Builder aprovacao(boolean val) {
+        public Builder aprovacao(Boolean val) {
             aprovacao = val;
             return this;
         }
@@ -45,7 +45,7 @@ public class VagaFiltro extends BaseFiltro {
         return empresa;
     }
 
-    public boolean isAprovacao() {
+    public Boolean isAprovacao() {
         return aprovacao;
     }
 

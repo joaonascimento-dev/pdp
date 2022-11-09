@@ -21,7 +21,7 @@ public class Vaga {
     @ManyToOne
     private Empresa empresa;
 
-    private boolean aprovacao;
+    private Boolean aprovacao;
 
     // definição de tamanho
     private String titulo;
@@ -44,11 +44,11 @@ public class Vaga {
         this.id = id;
     }
 
-    public boolean isAprovacao() {
+    public Boolean isAprovacao() {
         return aprovacao;
     }
 
-    public void setAprovacao(boolean aprovacao) {
+    public void setAprovacao(Boolean aprovacao) {
         this.aprovacao = aprovacao;
     }
 
