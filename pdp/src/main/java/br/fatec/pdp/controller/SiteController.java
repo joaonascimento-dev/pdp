@@ -14,19 +14,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.fatec.pdp.filtro.AlunoFiltro;
 import br.fatec.pdp.filtro.EmpresaFiltro;
 import br.fatec.pdp.filtro.UsuarioFiltro;
 import br.fatec.pdp.filtro.VagaFiltro;
 import br.fatec.pdp.model.Aluno;
 import br.fatec.pdp.model.AlunoVaga;
 import br.fatec.pdp.model.Empresa;
+import br.fatec.pdp.model.Experiencia;
 import br.fatec.pdp.model.Usuario;
 import br.fatec.pdp.model.Vaga;
 import br.fatec.pdp.service.AlunoService;
 import br.fatec.pdp.service.AlunoVagaService;
 import br.fatec.pdp.service.EmpresaService;
+import br.fatec.pdp.service.ExperienciaService;
 import br.fatec.pdp.service.UsuarioService;
 import br.fatec.pdp.service.VagaService;
+import br.fatec.pdp.util.Data;
 
 //@CrossOrigin(origins = "http://localhost:3000")
 @Controller
@@ -46,6 +50,9 @@ public class SiteController {
 
     @Autowired
     private EmpresaService empresaService;
+
+    @Autowired
+    private ExperienciaService experienciaService;
 
     @RequestMapping("/")
     public ModelAndView index(HttpSession session) {
@@ -179,6 +186,41 @@ public class SiteController {
         mav.addObject("listFormacao", aluno.getListFormacao());
         mav.addObject("listHabilidade", aluno.getListHabilidade());
         return mav;
+    }
+
+    @RequestMapping("/experiencia/cadastrar/{id}")
+    public ModelAndView experienciaCadastrar(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("experienciaCadastrar");
+
+        Aluno aluno = alunoService.getByCriteria((AlunoFiltro) new AlunoFiltro.Builder().id(id).build());
+        mav.addObject("aluno", aluno);
+
+        Experiencia experiencia = new Experiencia();
+        mav.addObject("experiencia", experiencia);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/cadastrarExperiencia/")
+    public String experienciaCadastrar(Integer idAluno, String titulo, String cargo, String nomeEmpresa, String cidadeEmpresa, String estadoEmpresa, String paisEmpresa, String dataInicio, String dataFim, boolean atual, String descricao) {
+
+        Aluno aluno = alunoService.findById(idAluno);
+
+        Experiencia experiencia = new Experiencia();
+        experiencia.setAluno(aluno);
+        experiencia.setTitulo(titulo.trim().equals("") ? experiencia.getTitulo() : titulo.trim());
+        experiencia.setCargo(cargo.trim().equals("") ? experiencia.getCargo() : cargo.trim());
+        experiencia.setNomeEmpresa(nomeEmpresa.trim().equals("") ? experiencia.getNomeEmpresa() : nomeEmpresa.trim());
+        experiencia.setCidadeEmpresa(cidadeEmpresa.trim().equals("") ? experiencia.getCidadeEmpresa() : cidadeEmpresa.trim());
+        experiencia.setEstadoEmpresa(estadoEmpresa.trim().equals("") ? experiencia.getEstadoEmpresa() : estadoEmpresa.trim());
+        experiencia.setPaisEmpresa(paisEmpresa.trim().equals("") ? experiencia.getPaisEmpresa() : paisEmpresa.trim());
+        experiencia.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
+        experiencia.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        experiencia.setAtual(atual);
+        experiencia.setDescricao(descricao.trim().equals("") ? experiencia.getDescricao() : descricao.trim());
+        experienciaService.save(experiencia);
+
+        return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
     }
 
     

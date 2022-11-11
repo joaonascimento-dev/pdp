@@ -33,6 +33,11 @@ public class AlunoService {
         return alunoRepo.findByCriteria(pageable, alunoFiltro);
     }
 
+    public Aluno getByCriteria(AlunoFiltro alunoFiltro) {
+        List<Aluno> listAluno = findByCriteria(alunoFiltro);
+        return listAluno.isEmpty() ? null : listAluno.get(0);
+    }
+
     public void delete(Aluno aluno) {
         alunoRepo.delete(aluno);
     }
