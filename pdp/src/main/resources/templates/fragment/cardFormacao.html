@@ -1,9 +1,9 @@
 <div class="card" style="background-color: #efece9;">  
     <h6 class="mt-1 mb-1 mx-5"><strong>[(${formacao.instituicao})]</strong></h6>
     <p class="m-1 mx-3">[(${formacao.diploma})] - [(${formacao.curso})]</p>
-    <p th:if="${formacao.atual}" class="m-1 mx-3">[(${formacao.dataInicio})] - Atualmente</p>
-    <p th:unless="${formacao.atual}" class="m-1 mx-3">[(${formacao.dataInicio})] - [(${formacao.dataFim})]</p>
+    <p th:if="${formacao.atual}" class="m-1 mx-3">[(${formacao.printDataInicio})] - Atualmente</p>
+    <p th:unless="${formacao.atual}" class="m-1 mx-3">[(${formacao.printDataInicio})] - [(${formacao.printDataFim})]</p>
     <div class="text-end">
-      <button type="submit" class="btn btn-sm btn-danger mb-2 me-3"><i class="bi bi-pencil-fill"></i> Editar</button>
+      <a th:href="'/formacao/editar/' + ${aluno.id}" class="btn btn-outline-danger stretched-link"><i class="bi bi-pencil-fill"></i> Editar</a>
     </div>
   </div>
