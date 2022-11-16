@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import br.fatec.pdp.util.Data;
+
 @Entity
 public class Formacao {
 
@@ -98,6 +100,16 @@ public class Formacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String printDataInicio()
+    {
+        return Data.toString(dataInicio);
+    }
+
+    public String printDataFim()
+    {
+        return Data.toString(dataFim);
     }
 
 }

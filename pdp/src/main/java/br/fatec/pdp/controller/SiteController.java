@@ -22,6 +22,8 @@ import br.fatec.pdp.model.Aluno;
 import br.fatec.pdp.model.AlunoVaga;
 import br.fatec.pdp.model.Empresa;
 import br.fatec.pdp.model.Experiencia;
+import br.fatec.pdp.model.Formacao;
+import br.fatec.pdp.model.Habilidade;
 import br.fatec.pdp.model.Usuario;
 import br.fatec.pdp.model.Vaga;
 import br.fatec.pdp.service.AlunoService;
@@ -201,8 +203,9 @@ public class SiteController {
         return mav;
     }
 
+
     @PostMapping(value = "/cadastrarExperiencia/")
-    public String experienciaCadastrar(Integer idAluno, String titulo, String cargo, String nomeEmpresa, String cidadeEmpresa, String estadoEmpresa, String paisEmpresa, String dataInicio, String dataFim, boolean atual, String descricao) {
+    public String formacaoCadastrar(Integer idAluno, String titulo, String cargo, String nomeEmpresa, String cidadeEmpresa, String estadoEmpresa, String paisEmpresa, String dataInicio, String dataFim, boolean atual, String descricao) {
 
         Aluno aluno = alunoService.findById(idAluno);
 
@@ -221,6 +224,114 @@ public class SiteController {
         experienciaService.save(experiencia);
 
         return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
+    }
+
+    @RequestMapping("/formacao/cadastrar/{id}")
+    public ModelAndView formacaoCadastrar(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("formacaoCadastrar");
+
+        Aluno aluno = alunoService.getByCriteria((AlunoFiltro) new AlunoFiltro.Builder().id(id).build());
+        mav.addObject("aluno", aluno);
+
+        Formacao formacao = new Formacao();
+        mav.addObject("formacao", formacao);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/cadastrarFormacao/")
+    public String formacaoCadastrar(Integer idAluno, String curso, String diploma, String instituicao, String dataInicio, String dataFim, boolean atual, String descricao) {
+
+        Aluno aluno = alunoService.findById(idAluno);
+
+        Formacao formacao = new Formacao();
+        formacao.setAluno(aluno);
+        formacao.setCurso(curso.trim().equals("") ? formacao.getCurso() : curso.trim());
+        formacao.setDiploma(diploma.trim().equals("") ? formacao.getDiploma() : diploma.trim());
+        formacao.setInstituicao(instituicao.trim().equals("") ? formacao.getInstituicao() : instituicao.trim());
+        formacao.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
+        formacao.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        formacao.setAtual(atual);
+        formacao.setDescricao(descricao.trim().equals("") ? formacao.getDescricao() : descricao.trim());
+
+        return "redirect:/perfilAluno/" + formacao.getAluno().getId();
+    }
+
+    @RequestMapping("/formacao/editar/{id}")
+    public ModelAndView formacaoEditar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("formacaoEditar");
+
+        Formacao formacao = new Formacao();
+        mav.addObject("formacao", formacao);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/formacaoEditar/{id}")
+    public String formacaoEditar(@PathVariable(name = "id") Integer idAluno, String curso, String diploma, String instituicao, String dataInicio, String dataFim, boolean atual, String descricao) {
+
+        Aluno aluno = alunoService.findById(idAluno);
+
+        Formacao formacao = new Formacao();
+        formacao.setAluno(aluno);
+        formacao.setCurso(curso.trim().equals("") ? formacao.getCurso() : curso.trim());
+        formacao.setDiploma(diploma.trim().equals("") ? formacao.getDiploma() : diploma.trim());
+        formacao.setInstituicao(instituicao.trim().equals("") ? formacao.getInstituicao() : instituicao.trim());
+        formacao.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
+        formacao.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        formacao.setAtual(atual);
+        formacao.setDescricao(descricao.trim().equals("") ? formacao.getDescricao() : descricao.trim());
+
+        return "redirect:/perfilAluno/" + formacao.getAluno().getId();
+    }
+
+    @RequestMapping("/habilidade/cadastrar/{id}")
+    public ModelAndView habilidadeCadastrar(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("habilidadeCadastrar");
+
+        Aluno aluno = alunoService.getByCriteria((AlunoFiltro) new AlunoFiltro.Builder().id(id).build());
+        mav.addObject("aluno", aluno);
+
+        Habilidade habilidade = new Habilidade();
+        mav.addObject("habilidade", habilidade);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/habilidadeCadastrar/")
+    public String habilidadeCadastrar(Integer idAluno, String habilidade) {
+
+        Aluno aluno = alunoService.findById(idAluno);
+
+        Habilidade hab = new Habilidade();
+        hab.setAluno(aluno);
+        hab.setHabilidade(habilidade.trim().equals("") ? hab.getHabilidade() : habilidade.trim());
+
+        return "redirect:/perfilAluno/" + hab.getAluno().getId();
+    }
+
+    @RequestMapping("/habilidade/editar/{id}")
+    public ModelAndView habilidadeEditar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaEditar");
+
+        Habilidade habilidade = new Habilidade();
+        mav.addObject("habilidade", habilidade);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/habilidadeEditar/{id}")
+    public String habilidadeEditar(@PathVariable(name = "id") Integer idAluno, String habilidade) {
+
+        Aluno aluno = alunoService.findById(idAluno);
+
+        Habilidade hab = new Habilidade();
+        hab.setAluno(aluno);
+        hab.setHabilidade(habilidade.trim().equals("") ? hab.getHabilidade() : habilidade.trim());
+
+        return "redirect:/perfilAluno/" + hab.getAluno().getId();
     }
 
     

@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import br.fatec.pdp.util.Data;
+
 @Entity
 public class Aluno {
     @Id
@@ -298,7 +300,10 @@ public class Aluno {
         this.listHabilidade = listHabilidade;
     }
 
-    
+    public String printDataNasc()
+    {
+        return Data.toString(dataNasc);
+    }
     
     
 }
