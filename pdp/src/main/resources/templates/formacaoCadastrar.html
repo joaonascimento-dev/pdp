@@ -33,7 +33,7 @@
           <input type="hidden" name="idAluno" th:value="${aluno.id}">
 
           <label>Curso</label>
-          <input type="text" class="form-control mb-1" name="curso" th:value="${formacao.curso}">
+          <input type="text" class="form-control mb-1" name="curso" th:value="${formacao.curso}" required>
           <label>Diploma</label>
           <select class="form-select mb-1" name="diploma" th:value="${formacao.diploma}">
             <option>Nenhum</option>
@@ -47,7 +47,7 @@
             <option>Curso Extracurricular</option>
           </select>
           <label>Instituição</label>
-          <input type="text" class="form-control mb-1" name="instituicao" th:value="${formacao.instituicao}">
+          <input type="text" class="form-control mb-1" name="instituicao" th:value="${formacao.instituicao}" required>
           <div class="row col-12">
             <div class="col-4 mt-4">
               <label>Cursando atualmente?</label>
@@ -55,11 +55,11 @@
             </div>
             <div class="col-4 mb-1">
               <label>Data de Início</label>
-              <input type="date" class="form-control" name="paisEmpresa" th:value="${formacao.dataInicio}">
+              <input type="date" class="form-control" name="paisEmpresa" th:value="${formacao.dataInicio}" required>
             </div>
             <div class="col-4 mb-1">
               <label>Data de Término</label>
-              <input type="date" class="form-control" name="paisEmpresa" th:value="${formacao.dataFim}">
+              <input type="date" class="form-control" name="paisEmpresa" th:value="${formacao.dataFim}" required>
             </div>
           </div>
           <label>Descrição</label>

@@ -27,9 +27,9 @@
           <img src="/img/job1.png" class="img-fluid rounded shadow" alt="...">
         </div>
         <div class="col-7">
-          <input type="text" class="form-control" name="titulo" th:value="${vaga.titulo}">
+          <input type="text" class="form-control" name="titulo" th:value="${vaga.titulo}" required>
           <p class="text-end mt-2">[(${vaga.getEmpresa().getNomeFantasia()})] - Itapira, SP</p>
-          <textarea type="text" class="form-control" name="descricao" th:text="${vaga.descricao}"></textarea>
+          <textarea type="text" class="form-control" name="descricao" th:text="${vaga.descricao}" required></textarea>
 
           <div class="row">
             <div class="col mt-3">

@@ -21,21 +21,21 @@
   <th:block th:replace="fragment/navbar" />
 
   <div class="container py-3">
-    <form action="/cadastrarExperiencia/" method="POST">
+    <form th:action="@{'/editarExperiencia/' + ${experiencia.id}}" method="POST">
       <div class="row">
         <div class="col-12">
-          <h1 class="text-center text-danger border-bottom border-1 border-danger">CADASTRO DE EXPERIÊNCIA</h1>
+          <h1 class="text-center text-danger border-bottom border-1 border-danger">EDITAR EXPERIÊNCIA</h1>
         </div>
         <div class="col-5 ">
           <img src="/img/aluno2.jpg" class="img-fluid rounded shadow" alt="...">
         </div>
         <div class="col-7">
-          <input type="hidden" name="idAluno" th:value="${aluno.id}">
 
           <label>Titulo</label>
-          <input type="text" class="form-control mb-1" name="titulo" th:value="${experiencia.titulo}">
+          <input type="text" class="form-control mb-1" name="titulo" th:value="${experiencia.titulo}" required>
           <label>Tipo de Emprego</label>
           <select class="form-select mb-1" name="cargo" th:value="${experiencia.cargo}">
+            <option>Nenhum</option>
             <option>Tempo Integral</option>
             <option>Meio Período</option>
             <option>Autônomo</option>
@@ -47,13 +47,13 @@
             <option>Terceirizado</option>
           </select>
           <label>Nome da Empresa</label>
-          <input type="text" class="form-control mb-1" name="nomeEmpresa" th:value="${experiencia.nomeEmpresa}">
+          <input type="text" class="form-control mb-1" name="nomeEmpresa" th:value="${experiencia.nomeEmpresa}" required>
           <label>Cidade</label>
-          <input type="text" class="form-control mb-1" name="cidadeEmpresa" th:value="${experiencia.cidadeEmpresa}">
+          <input type="text" class="form-control mb-1" name="cidadeEmpresa" th:value="${experiencia.cidadeEmpresa}" required>
           <label>Estado</label>
-          <input type="text" class="form-control mb-1" name="estadoEmpresa" th:value="${experiencia.estadoEmpresa}">
+          <input type="text" class="form-control mb-1" name="estadoEmpresa" th:value="${experiencia.estadoEmpresa}" required>
           <label>País</label>
-          <input type="text" class="form-control mb-1" name="paisEmpresa" th:value="${experiencia.paisEmpresa}">
+          <input type="text" class="form-control mb-1" name="paisEmpresa" th:value="${experiencia.paisEmpresa}" required>
           <div class="row col-12">
             <div class="col-4 mt-4">
               <label>Trabalha atualmente?</label>
@@ -61,17 +61,20 @@
             </div>
             <div class="col-4 mb-1">
               <label>Data de Início</label>
-              <input type="date" class="form-control" name="dataInicio" th:value="${experiencia.dataInicio}">
+              <input type="date" class="form-control" name="dataInicio" th:value="${experiencia.dataInicio}" required>
             </div>
             <div class="col-4 mb-1">
               <label>Data de Término</label>
-              <input type="date" class="form-control" name="dataFim" th:value="${experiencia.dataFim}">
+              <input type="date" class="form-control" name="dataFim" th:value="${experiencia.dataFim}" required>
             </div>
           </div>
           <label>Descrição</label>
           <textarea type="text" class="form-control" name="descricao" th:text="${experiencia.descricao}"></textarea>
 
           <div class="row">
+            <div class="col mt-3">
+              <a th:href="@{'/excluirExperiencia/' + ${experiencia.id}}" class="btn btn-outline-danger"> Excluir</a>
+            </div>
             <div class="text-end col mt-3">
               <button onclick="history.back()" class="btn btn-outline-secondary">Cancelar</button>
               <button type="submit" class="btn btn-danger">Salvar</button>

@@ -21,7 +21,7 @@
   <th:block th:replace="fragment/navbar" />
 
   <div class="container py-3">
-    <form action="/cadastrarFormacao/" method="POST">
+    <form action="/cadastrarHabilidade/" method="POST">
       <div class="row">
         <div class="col-12">
           <h1 class="text-center text-danger border-bottom border-1 border-danger">CADASTRO DE HABILIDADE</h1>
@@ -33,7 +33,7 @@
           <input type="hidden" name="idAluno" th:value="${aluno.id}">
 
           <label>Habilidade</label>
-          <input type="text" class="form-control mb-1" name="curso" th:value="${habilidade.habilidade}">
+          <input type="text" class="form-control mb-1" name="habilidade" th:value="${habilidade.habilidade}" required>
 
           <div class="row">
             <div class="text-end col mt-3">

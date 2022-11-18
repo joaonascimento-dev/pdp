@@ -5,6 +5,6 @@
     <p th:unless="${experiencia.atual}" class="m-1 mx-3">[(${experiencia.printDataInicio})] - [(${experiencia.printDataFim})]</p>
     <p class="m-1 mx-3">[(${experiencia.cidadeEmpresa})], [(${experiencia.estadoEmpresa})], [(${experiencia.paisEmpresa})]</p>
     <div class="text-end">
-      <button type="submit" class="btn btn-sm btn-danger mb-2 me-3"><i class="bi bi-pencil-fill"></i> Editar</button>
+      <a th:href="'/experiencia/editar/' + ${experiencia.id}" class="btn btn-outline-danger stretched-link m-2"><i class="bi bi-pencil-fill"></i> Editar</a>
     </div>
   </div>
