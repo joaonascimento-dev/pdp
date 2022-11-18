@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,8 @@ import br.fatec.pdp.service.AlunoService;
 import br.fatec.pdp.service.AlunoVagaService;
 import br.fatec.pdp.service.EmpresaService;
 import br.fatec.pdp.service.ExperienciaService;
+import br.fatec.pdp.service.FormacaoService;
+import br.fatec.pdp.service.HabilidadeService;
 import br.fatec.pdp.service.UsuarioService;
 import br.fatec.pdp.service.VagaService;
 import br.fatec.pdp.util.Data;
@@ -55,6 +58,12 @@ public class SiteController {
 
     @Autowired
     private ExperienciaService experienciaService;
+
+    @Autowired
+    private FormacaoService formacaoService;
+
+    @Autowired
+    private HabilidadeService habilidadeService;
 
     @RequestMapping("/")
     public ModelAndView index(HttpSession session) {
@@ -217,11 +226,50 @@ public class SiteController {
         experiencia.setCidadeEmpresa(cidadeEmpresa.trim().equals("") ? experiencia.getCidadeEmpresa() : cidadeEmpresa.trim());
         experiencia.setEstadoEmpresa(estadoEmpresa.trim().equals("") ? experiencia.getEstadoEmpresa() : estadoEmpresa.trim());
         experiencia.setPaisEmpresa(paisEmpresa.trim().equals("") ? experiencia.getPaisEmpresa() : paisEmpresa.trim());
-        experiencia.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
-        experiencia.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        experiencia.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
+        experiencia.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
         experiencia.setAtual(atual);
         experiencia.setDescricao(descricao.trim().equals("") ? experiencia.getDescricao() : descricao.trim());
         experienciaService.save(experiencia);
+
+        return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
+    }
+
+    @RequestMapping("/experiencia/editar/{id}")
+    public ModelAndView experienciaEditar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("experienciaEditar");
+
+        Experiencia experiencia = experienciaService.findById(id);
+        mav.addObject("experiencia", experiencia);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/editarExperiencia/{id}")
+    public String experienciaEditar(@PathVariable(name = "id") Integer id, String titulo, String cargo, String nomeEmpresa, String cidadeEmpresa, String estadoEmpresa, String paisEmpresa, String dataInicio, String dataFim, boolean atual, String descricao) {
+
+        Experiencia experiencia = experienciaService.findById(id);
+        experiencia.setTitulo(titulo.trim().equals("") ? experiencia.getTitulo() : titulo.trim());
+        experiencia.setCargo(cargo.trim().equals("") ? experiencia.getCargo() : cargo.trim());
+        experiencia.setNomeEmpresa(nomeEmpresa.trim().equals("") ? experiencia.getNomeEmpresa() : nomeEmpresa.trim());
+        experiencia.setCidadeEmpresa(cidadeEmpresa.trim().equals("") ? experiencia.getCidadeEmpresa() : cidadeEmpresa.trim());
+        experiencia.setEstadoEmpresa(estadoEmpresa.trim().equals("") ? experiencia.getEstadoEmpresa() : estadoEmpresa.trim());
+        experiencia.setPaisEmpresa(paisEmpresa.trim().equals("") ? experiencia.getPaisEmpresa() : paisEmpresa.trim());
+        experiencia.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
+        experiencia.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
+        experiencia.setAtual(atual);
+        experiencia.setDescricao(descricao.trim().equals("") ? experiencia.getDescricao() : descricao.trim());
+        experienciaService.save(experiencia);
+
+        return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
+    }
+
+    @GetMapping(value = "/excluirExperiencia/{id}")
+    public String experienciaExcluir(@PathVariable(name = "id") Integer id) {
+        
+        Experiencia experiencia = experienciaService.findById(id);
+        experienciaService.delete(experiencia);
 
         return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
     }
@@ -249,39 +297,47 @@ public class SiteController {
         formacao.setCurso(curso.trim().equals("") ? formacao.getCurso() : curso.trim());
         formacao.setDiploma(diploma.trim().equals("") ? formacao.getDiploma() : diploma.trim());
         formacao.setInstituicao(instituicao.trim().equals("") ? formacao.getInstituicao() : instituicao.trim());
-        formacao.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
-        formacao.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        formacao.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
+        formacao.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
         formacao.setAtual(atual);
         formacao.setDescricao(descricao.trim().equals("") ? formacao.getDescricao() : descricao.trim());
+        formacaoService.save(formacao);
 
         return "redirect:/perfilAluno/" + formacao.getAluno().getId();
     }
 
     @RequestMapping("/formacao/editar/{id}")
-    public ModelAndView formacaoEditar(@PathVariable(name = "id") Integer id,
+    public ModelAndView formacaoEditar(@PathVariable(name = "id") Integer id, 
             HttpSession session) {
         ModelAndView mav = new ModelAndView("formacaoEditar");
 
-        Formacao formacao = new Formacao();
+        Formacao formacao = formacaoService.findById(id);
         mav.addObject("formacao", formacao);
 
         return mav;
     }
 
-    @PostMapping(value = "/formacaoEditar/{id}")
-    public String formacaoEditar(@PathVariable(name = "id") Integer idAluno, String curso, String diploma, String instituicao, String dataInicio, String dataFim, boolean atual, String descricao) {
+    @PostMapping(value = "/editarFormacao/{id}")
+    public String formacaoEditar(@PathVariable(name = "id") Integer id, String curso, String diploma, String instituicao, String dataInicio, String dataFim, boolean atual, String descricao) {
 
-        Aluno aluno = alunoService.findById(idAluno);
-
-        Formacao formacao = new Formacao();
-        formacao.setAluno(aluno);
+        Formacao formacao = formacaoService.findById(id);
         formacao.setCurso(curso.trim().equals("") ? formacao.getCurso() : curso.trim());
         formacao.setDiploma(diploma.trim().equals("") ? formacao.getDiploma() : diploma.trim());
         formacao.setInstituicao(instituicao.trim().equals("") ? formacao.getInstituicao() : instituicao.trim());
-        formacao.setDataInicio(Data.fromStringISO(dataInicio).atStartOfDay());
-        formacao.setDataFim(Data.fromStringISO(dataFim).atStartOfDay());
+        formacao.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
+        formacao.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
         formacao.setAtual(atual);
         formacao.setDescricao(descricao.trim().equals("") ? formacao.getDescricao() : descricao.trim());
+        formacaoService.save(formacao);
+
+        return "redirect:/perfilAluno/" + formacao.getAluno().getId();
+    }
+
+    @GetMapping(value = "/excluirFormacao/{id}")
+    public String excluirFormacao(@PathVariable(name = "id") Integer id) {
+        
+        Formacao formacao = formacaoService.findById(id);
+        formacaoService.delete(formacao);
 
         return "redirect:/perfilAluno/" + formacao.getAluno().getId();
     }
@@ -299,7 +355,7 @@ public class SiteController {
         return mav;
     }
 
-    @PostMapping(value = "/habilidadeCadastrar/")
+    @PostMapping(value = "/cadastrarHabilidade/")
     public String habilidadeCadastrar(Integer idAluno, String habilidade) {
 
         Aluno aluno = alunoService.findById(idAluno);
@@ -307,6 +363,7 @@ public class SiteController {
         Habilidade hab = new Habilidade();
         hab.setAluno(aluno);
         hab.setHabilidade(habilidade.trim().equals("") ? hab.getHabilidade() : habilidade.trim());
+        habilidadeService.save(hab);
 
         return "redirect:/perfilAluno/" + hab.getAluno().getId();
     }
@@ -334,10 +391,19 @@ public class SiteController {
         return "redirect:/perfilAluno/" + hab.getAluno().getId();
     }
 
+    @GetMapping(value = "/excluirHabilidade/{id}")
+    public String excluirHabilidade(@PathVariable(name = "id") Integer id) {
+        
+        Habilidade habilidade = habilidadeService.findById(id);
+        habilidadeService.delete(habilidade);
+
+        return "redirect:/perfilAluno/" + habilidade.getAluno().getId();
+    }
+
     
-    @RequestMapping("/empresa/{id}")
+    @RequestMapping("/perfilEmpresa/{id}")
     public ModelAndView empresa(@PathVariable(name = "id") Integer id, HttpSession session) {
-        ModelAndView mav = new ModelAndView("empresa");
+        ModelAndView mav = new ModelAndView("perfilEmpresa");
 
         Empresa empresa = empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(id).build());
 
