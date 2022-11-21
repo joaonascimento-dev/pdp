@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivagas - Cadastro da Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container-fluid bg-danger pt-3">
+    <form action="index.html">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-10 mb-3">
+          <div class="card p-4 rounded-4" >
+            <p class="fs-4 text-center m-0"><i class="bi bi-person-circle"></i> [(${aluno.nome})]</p>
+          </div>
+        </div>
+        <div class="col-md-8 col-10 mb-3">
+          <div class="card p-4 rounded-5" >
+            <p class="fs-4 text-center">Informações Pessoais</p>
+            <div class="col-md-11 mb-4 mx-auto border border-secondary border-1 rounded-5" style="background-color: #efece9;">
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputNomeSocial" class="form-label">CPF</label>
+                  <input type="text" class="form-control" id="exampleInputCPF" readonly th:value="${aluno.cpf}">
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputDataNasc" class="form-label">RG</label>
+                  <input type="text" class="form-control" id="exampleInputRG" readonly th:value="${aluno.rg}">
+                </div>
+                <div class="col-4 mb-3" >
+                  <label for="exampleInputSexo" class="form-label">RA</label>
+                  <input type="text" class="form-control" id="exampleInputRA" readonly th:value="${aluno.ra}">
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-6 mb-3">
+                  <label for="exampleInputNomeSocial" class="form-label">Nome Social</label>
+                  <input type="text" class="form-control" id="exampleInputNomeSocial" readonly th:value="${aluno.nomeSocial}">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataNasc" class="form-label">Data Nascimento</label>
+                  <input type="text" class="form-control" id="exampleInputDataNasc" readonly th:value="${aluno.printDataNasc}">
+                </div>
+                <div class="col-3 mb-3" >
+                  <label for="exampleInputSexo" class="form-label">Sexo</label>
+                  <input type="text" class="form-control" id="exampleInputSexo" readonly th:value="${aluno.sexo}">
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-6 mb-3">
+                  <label for="exampleInputEmail" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="exampleInputEmail" readonly th:value="${aluno.email}">
+                </div>
+                <div class="col-6 mb-3">
+                  <label for="exampleInputTelefone" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="exampleInputTelefone" readonly th:value="${aluno.telefone}">
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-7 mb-3">
+                  <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" id="exampleInputLogradouro" readonly th:value="${aluno.logradouro}">
+                </div>
+                <div class="col-2 mb-3 ">
+                  <label for="exampleInputNumero" class="form-label">Numero</label>
+                  <input type="text" class="form-control" id="exampleInputNumero" readonly th:value="${aluno.numero}">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCep" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="exampleInputCep" readonly th:value="${aluno.cep}">
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputComplemento" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="exampleInputComplemento" readonly th:value="${aluno.complemento}">
+                </div>
+                <div class="col-5 mb-3">
+                  <label for="exampleInputBairro" class="form-label">Bairro</label>
+                  <input type="email" class="form-control" id="exampleInputBairro" readonly th:value="${aluno.bairro}">
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputCidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="exampleInputCidade" readonly th:value="${aluno.cidade}">
+                </div>
+              </div>
+              <div class="m-1 row align-items-center">
+                <div class="col-4 mb-3">
+                  <label for="exampleInputEstado" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="exampleInputEstado" readonly th:value="${aluno.estado}">
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputPais" class="form-label">Pais</label>
+                  <input type="text" class="form-control" id="exampleInputPais" readonly th:value="${aluno.pais}">
+                </div>
+                <div class="col-4 mb-3">
+                  <label for="exampleInputNacionalidade" class="form-label">Nacionalidade</label>
+                  <input type="text" class="form-control" id="exampleInputNacionalidade" readonly th:value="${aluno.nacionalidade}">
+                </div>
+              </div>
+              <div class= "text-end me-3 mb-3"> 
+                <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-pencil-fill"></i> Editar</a>
+              </div>
+            </div>
+          </div> 
+        </div>  
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Expêriencias</p>
+              <div class="row row-cols-2 align-items-center">
+                <div th:each="experiencia : ${listExperiencia}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardExperiencia}" />
+                </div>
+              </div> 
+              <div class="text-end">
+                <a th:href="@{'/experiencia/cadastrar/' + ${aluno.id}}" class="btn btn-danger"><i
+                  class="bi bi-plus-circle"></i> Adicionar Experiência</a>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Formações</p>
+              <div class="row row-cols-2 align-items-center">
+                <div th:each="formacao : ${listFormacao}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardFormacao}" />
+                </div>
+              </div>
+              <div class="text-end">
+                <a th:href="@{'/formacao/cadastrar/' + ${aluno.id}}" class="btn btn-danger"><i
+                  class="bi bi-plus-circle"></i> Adicionar Formação</a>
+            </div>
+            </div> 
+          </div>
+
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Habilidades</p>
+              <div class="row row-cols-3 align-items-center">
+                <div th:each="habilidade : ${listHabilidade}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardHabilidade}" />
+                </div>
+              </div>
+              <div class="text-end">
+                <a th:href="@{'/habilidade/cadastrar/' + ${aluno.id}}" class="btn btn-danger"><i
+                  class="bi bi-plus-circle"></i> Adicionar Habilidade</a>
+              </div>
+            </div> 
+          </div>
+      </div>
+
+    </form>
+  </div>
+
+  <th:block th:replace="fragment/footer" />
+</body>
+
+</html>

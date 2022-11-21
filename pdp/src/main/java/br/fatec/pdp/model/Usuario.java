@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -29,9 +31,13 @@ public class Usuario{
     private String senha;
     private boolean administrador;
 
-    //@OneToOne
-    //@JoinColumn(name = "alunoId")
-    //private Aluno aluno;
+    @OneToOne
+    @JoinColumn(name = "alunoId")
+    private Aluno aluno;
+
+    @OneToOne
+    @JoinColumn(name = "empresaId")
+    private Empresa empresa;
     
     
     public Integer getId() {
@@ -77,5 +83,21 @@ public class Usuario{
 
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

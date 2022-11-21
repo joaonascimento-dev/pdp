@@ -84,7 +84,7 @@ public class SiteController {
 
     @PostMapping("/login")
     public String login(@ModelAttribute("login") String login,
-            @ModelAttribute("password") String senha,
+            @ModelAttribute("senha") String senha,
             HttpSession session) {
 
         UsuarioFiltro filtro = new UsuarioFiltro.Builder().login(login).build();
@@ -105,6 +105,14 @@ public class SiteController {
         }
 
         session.setAttribute("usuario", usuario);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("/logoff")
+    public String logoff(HttpSession session) {
+        System.out.println("Logoff");
+        session.setAttribute("usuario", null);
 
         return "redirect:/";
     }

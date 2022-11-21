@@ -1,0 +1,10 @@
+<div class="card" style="background-color: #efece9;">  
+    <h5 class="mt-1 mb-1 mx-5"><strong>[(${experiencia.titulo})]</strong></h5>
+    <p class="m-1 mx-3">[(${experiencia.nomeEmpresa})] - [(${experiencia.cargo})]</p>
+    <p th:if="${experiencia.atual}" class="m-1 mx-3">[(${experiencia.printDataInicio})] - Atualmente</p>
+    <p th:unless="${experiencia.atual}" class="m-1 mx-3">[(${experiencia.printDataInicio})] - [(${experiencia.printDataFim})]</p>
+    <p class="m-1 mx-3">[(${experiencia.cidadeEmpresa})], [(${experiencia.estadoEmpresa})], [(${experiencia.paisEmpresa})]</p>
+    <div class="text-end">
+      <a th:href="'/experiencia/editar/' + ${experiencia.id}" class="btn btn-outline-danger stretched-link m-2"><i class="bi bi-pencil-fill"></i> Editar</a>
+    </div>
+  </div>

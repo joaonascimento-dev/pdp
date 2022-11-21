@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivagas - Cadastro da Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container-fluid bg-danger pt-5">
+    <form action="index.html">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-10">
+          <div class="card p-4 mb-5">
+            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Cadastro da Empresa</p>
+
+            <div class="mb-3">
+              <label for="exampleInputNomeFan" class="form-label">Nome Fantasia:</label>
+              <input type="text" class="form-control" id="exampleInputNomeFan" >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputRazSoc" class="form-label">Razão Social</label>
+              <input type="text" class="form-control" id="exampleInputRazSoc">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputCnpj" class="form-label">CNPJ</label>
+              <input type="text" class="form-control" id="exampleInputCnpj" >
+            </div>
+            <div class="row align-items-center">
+              <div class="col mb-3">
+                  <label for="exampleInputTelefone" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="exampleInputTelefone" placeholder="(XX) X XXXX-XXXX">
+              </div>
+              <div class="col mb-3" >
+                <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="exemplo@ex">
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-10 mb-3">
+                <label for="exampleInputLogradouro" class="form-label">Logradouro</label>
+                <input type="text" class="form-control" id="exampleInputLogradouro">
+              </div>
+              <div class="col-2 mb-3 ">
+                <label for="exampleInputNumero" class="form-label">Numero</label>
+                <input type="text" class="form-control" id="exampleInputNumero" >
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-3 mb-3">
+                <label for="exampleInputCep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="exampleInputCep" placeholder="XXXXX-XXX">
+              </div>
+              <div class="col-4 mb-3">
+                <label for="exampleInputComplemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="exampleInputComplemento">
+              </div>
+              <div class="col-5 mb-3">
+                <label for="exampleInputBairro" class="form-label">Bairro</label>
+                <input type="email" class="form-control" id="exampleInputBairro">
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col mb-3">
+                <label for="exampleInputCidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="exampleInputCidade">
+              </div>
+              <div class="col mb-3">
+                <label for="exampleInputEstado" class="form-label">Estado</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="1">Acre</option>
+                  <option value="2">Alagoas</option>
+                  <option value="3">Amapá</option>
+                  <option value="4">Amazonas</option>
+                  <option value="5">Bahia</option>
+                  <option value="6">Ceará</option>
+                  <option value="7">Distrito Federal</option>
+                  <option value="8">Espírito Santo</option>
+                  <option value="9">Goiás</option>
+                  <option value="10">Maranhão</option>
+                  <option value="11">Mato Grosso</option>
+                  <option value="12">Mato Grosso do Sul</option>
+                  <option value="13">Minas Gerais</option>
+                  <option value="14">Pará</option>
+                  <option value="15">Paraíba</option>
+                  <option value="16">Paraná</option>
+                  <option value="17">Pernambuco</option>
+                  <option value="18">Piauí</option>
+                  <option value="19">Rio de Janeiro</option>
+                  <option value="20">Rio Grande do Norte</option>
+                  <option value="21">Rio Grande do Sul</option>
+                  <option value="22">Rondônia</option>
+                  <option value="23">Roraima</option>
+                  <option value="24">Santa Catarina</option>
+                  <option value="25">São Paulo</option>
+                  <option value="26">Sergipe</option>
+                  <option value="27">Tocantins</option>
+                </select>
+              </div>
+              <div class="col mb-3">
+                <label for="exampleInputEstado" class="form-label">Pais</label>
+                <input type="text" class="form-control" id="exampleInputPais">
+              </div>
+            </div>
+
+            <br>  
+            
+            <button type="submit" class="btn btn-danger">Cadastrar</button>
+            
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <th:block th:replace="fragment/footer" />
+</body>
+
+</html>

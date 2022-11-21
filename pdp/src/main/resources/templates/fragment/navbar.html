@@ -5,9 +5,12 @@
     </a>
 
     <div class="col-md-3 text-end">
-      <a class="btn btn-lg btn-danger me-2" href="/cadastroEscolher"><i class="bi bi-person-plus-fill"></i>
+      <a th:if="${usuarioSessao == null}" class="btn btn-lg btn-danger me-2" href="/cadastroEscolher"><i class="bi bi-person-plus-fill"></i>
         Cadastrar</a>
-      <a class="btn btn-lg btn-outline-danger" href="/login"><i class="bi bi-person-circle"></i> Login</a>
+      <a th:if="${usuarioSessao == null}" class="btn btn-lg btn-outline-danger" href="/login"><i class="bi bi-person-circle"></i> Login</a>
+      <a th:if="${usuarioSessao != null && usuarioSessao.aluno != null}" class="btn btn-lg btn-danger" th:href="'/perfilAluno/' + ${usuarioSessao.aluno.id}"><i class="bi bi-person-circle"></i> Meu Perfil</a>
+      <a th:if="${usuarioSessao != null && usuarioSessao.empresa != null}" class="btn btn-lg btn-danger" th:href="'/perfilEmpresa/' + ${usuarioSessao.empresa.id}"><i class="bi bi-person-circle"></i> Meu Perfil</a>
+      <a th:if="${usuarioSessao != null}" class="btn btn-lg btn-outline-danger" href="/logoff"><i class="bi bi-box-arrow-right"></i> Sair</a>
     </div>
   </header>
 </div>

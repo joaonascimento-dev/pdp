@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivagas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container py-3">
+    <form th:action="@{'/editarFormacao/' + ${formacao.id}}" method="POST">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center text-danger border-bottom border-1 border-danger">EDITAR FORMAÇÃO</h1>
+        </div>
+        <div class="col-5 ">
+          <img src="/img/aluno2.jpg" class="img-fluid rounded shadow" alt="...">
+        </div>
+        <div class="col-7">
+          <label>Curso</label>
+          <input type="text" class="form-control mb-1" name="curso" th:value="${formacao.curso}" required>
+          <label>Diploma</label>
+          <select class="form-select mb-1" name="diploma" th:value="${formacao.diploma}">
+            <option>Nenhum</option>
+            <option>Ensino Fundamental</option>
+            <option>Ensino Médio</option>
+            <option>Ensino Técnico</option>
+            <option>Ensino Superior</option>
+            <option>Pós-Graduação</option>
+            <option>Mestrado</option>
+            <option>Doutorado</option>
+            <option>Curso Extracurricular</option>
+          </select>
+          <label>Instituição</label>
+          <input type="text" class="form-control mb-1" name="instituicao" th:value="${formacao.instituicao}" required>
+          <div class="row col-12">
+            <div class="col-4 mt-4">
+              <label>Cursando atualmente?</label>
+              <input type="checkbox" class="form-check-input" name="atual" autocomplete="off" th:value="${formacao.atual}">
+            </div>
+            <div class="col-4 mb-1">
+              <label>Data de Início</label>
+              <input type="date" class="form-control" name="dataInicio" th:value="${formacao.dataInicio}" required>
+            </div>
+            <div class="col-4 mb-1">
+              <label>Data de Término</label>
+              <input type="date" class="form-control" name="dataFim" th:value="${formacao.dataFim}" required>
+            </div>
+          </div>
+          <label>Descrição</label>
+          <textarea type="text" class="form-control" name="descricao" th:text="${formacao.descricao}"></textarea>
+
+          <div class="row">
+            <div class="col mt-3">
+              <a th:href="@{'/excluirFormacao/' + ${formacao.id}}" class="btn btn-outline-danger"> Excluir</a>
+            </div>
+            <div class="text-end col mt-3">
+              <button onclick="history.back()" class="btn btn-outline-secondary">Cancelar</button>
+              <button type="submit" class="btn btn-danger">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </form>
+  </div>
+
+  <!--div class="fixed-bottom container-fluid pt-3 bg-dark text-white"-->
+  <th:block th:replace="fragment/footer" />
+</body>
+
+</html>
