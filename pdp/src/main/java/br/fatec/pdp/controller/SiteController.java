@@ -118,10 +118,14 @@ public class SiteController {
     }
 
     @RequestMapping("/vagas")
-    public ModelAndView vagas(HttpSession session) {
+    public ModelAndView vagas(Optional<String> busca, HttpSession session) {
         ModelAndView mav = new ModelAndView("vagas");
 
-        List<Vaga> listVaga = vagaService.findByCriteria((VagaFiltro) new VagaFiltro.Builder().build());
+        mav.addObject("busca", busca.orElse(null));
+
+        List<Vaga> listVaga = vagaService.findByCriteria(
+            (VagaFiltro) new VagaFiltro.Builder().busca(busca.orElse(null)).build()
+            );
         mav.addObject("listVaga", listVaga);
 
         return mav;
