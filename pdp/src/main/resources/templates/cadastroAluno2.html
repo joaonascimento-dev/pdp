@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivagas - Cadastro da Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link th:href="@{/app/style.css}" rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <th:block th:replace="fragment/navbar" />
+
+  <div class="container-fluid bg-danger pt-5">
+    <form action="/cadastrarAluno/" method="POST">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-7 col-10">
+          <div class="card p-4 mb-5">
+            <p class="fs-4 text-center"><i class="bi bi-person-circle"></i>Cadastro do Aluno</p>
+
+            <input type="hidden" name="idUsuario" th:value="${idUsuario}">
+
+            <div class="mb-3">
+              <label class="form-label">Nome Aluno</label>
+              <input type="text" class="form-control" name="nome" >
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-5 mb-3">
+                <label class="form-label">Nome Social</label>
+                <input type="text" class="form-control" name="nomeSocial">
+              </div>
+              <div class="col-4 mb-3">
+                <label class="form-label">Data Nascimento</label>
+                <input type="date" class="form-control" name="dataNasc" >
+              </div>
+              <div class="col-3 mb-3">
+                <label class="form-label">Sexo</label>
+                <select class="form-select" aria-label="Default select example" name="sexo" >
+                  <option value="1">Masculino</option>
+                  <option value="2">Feminino</option>
+                  <option value="3">Não Informar</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-4 mb-3">
+                <label class="form-label">RG</label>
+                <input type="text" class="form-control" name="rg" >
+              </div>
+              <div class="col-4 mb-3">
+                <label class="form-label">CPF</label>
+                <input type="text" class="form-control" name="cpf">
+              </div>
+              <div class="col-4 mb-3">
+                <label class="form-label">RA</label>
+                <input type="text" class="form-control" name="ra" >
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col-6 mb-3">
+                  <label class="form-label">Cursos</label>
+                  <select class="form-select" aria-label="Default select example" name="curso">
+                    <option value="1">Desenvolvimento de Software Multiplataforma</option>
+                    <option value="2">Gestão da Produção Industrial</option>
+                    <option value="3">Gestão Empresarial</option>
+                    <option value="4">Gestão da Tecnologia da Informação</option>
+                  </select>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataInicio" class="form-label">Data Inicio</label>
+                  <input type="date" class="form-control" name="dataInicio" >
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="exampleInputDataInicio" class="form-label">Data Final</label>
+                  <input type="date" class="form-control" name="dataFim">
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col mb-3">
+                  <label class="form-label">Telefone</label>
+                  <input type="text" class="form-control" name="telefone" placeholder="(XX) X XXXX-XXXX">
+                </div>
+                <div class="col mb-3">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control" name="email" placeholder="exemplo@ex">
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col-7 mb-3">
+                  <label class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" name="logradouro" >
+                </div>
+                <div class="col-2 mb-3 ">
+                  <label class="form-label">Numero</label>
+                  <input type="text" class="form-control" name="numero" >
+                </div>
+                <div class="col-3 mb-3">
+                  <label class="form-label">CEP</label>
+                  <input type="text" class="form-control" name="cep" placeholder="XXXXX-XXX">
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col-4 mb-3">
+                  <label class="form-label">Complemento</label>
+                  <input type="text" class="form-control" name="complemento">
+                </div>
+                <div class="col-5 mb-3">
+                  <label class="form-label">Bairro</label>
+                  <input type="text" class="form-control" name="bairro">
+                </div>
+                <div class="col-3 mb-3">
+                  <label class="form-label">Cidade</label>
+                  <input type="text" class="form-control" name="cidade">
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+
+                <div class="col mb-3">
+                  <label class="form-label">Estado</label>
+                  <select class="form-select" aria-label="Default select example" name="estado">
+                    <option value="1">Acre</option>
+                    <option value="2">Alagoas</option>
+                    <option value="3">Amapá</option>
+                    <option value="4">Amazonas</option>
+                    <option value="5">Bahia</option>
+                    <option value="6">Ceará</option>
+                    <option value="7">Distrito Federal</option>
+                    <option value="8">Espírito Santo</option>
+                    <option value="9">Goiás</option>
+                    <option value="10">Maranhão</option>
+                    <option value="11">Mato Grosso</option>
+                    <option value="12">Mato Grosso do Sul</option>
+                    <option value="13">Minas Gerais</option>
+                    <option value="14">Pará</option>
+                    <option value="15">Paraíba</option>
+                    <option value="16">Paraná</option>
+                    <option value="17">Pernambuco</option>
+                    <option value="18">Piauí</option>
+                    <option value="19">Rio de Janeiro</option>
+                    <option value="20">Rio Grande do Norte</option>
+                    <option value="21">Rio Grande do Sul</option>
+                    <option value="22">Rondônia</option>
+                    <option value="23">Roraima</option>
+                    <option value="24">Santa Catarina</option>
+                    <option value="25">São Paulo</option>
+                    <option value="26">Sergipe</option>
+                    <option value="27">Tocantins</option>
+                  </select>
+                </div>
+                <div class="col mb-3">
+                  <label class="form-label">Pais</label>
+                  <input type="text" class="form-control" name="pais">
+                </div>
+                <div class="col mb-3">
+                  <label class="form-label">Nacionalidade</label>
+                  <input type="text" class="form-control" name="nacionalidade">
+                </div>
+              </div>
+              <br>
+
+              <button type="submit" class="btn btn-danger">Cadastrar</button>
+
+            </div>
+          </div>
+        </div>
+        </div>
+
+    </form>
+  </div>
+  <th:block th:replace="fragment/footer"/>
+</body>
+
+</html>
