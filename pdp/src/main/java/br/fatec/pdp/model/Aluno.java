@@ -39,6 +39,7 @@ public class Aluno {
     
     @Column(columnDefinition = "varchar(255) default 'Fatec Itapira - \"Dr. Ogari de Castro Pacheco\"' ")
     private String instituição;
+    private String curso;
 
     private LocalDateTime dataInicio;
     private LocalDateTime dataTermino;
@@ -146,6 +147,14 @@ public class Aluno {
 
     public void setInstituição(String instituição) {
         this.instituição = instituição;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 
     public LocalDateTime getDataInicio() {
@@ -304,6 +313,8 @@ public class Aluno {
     {
         return Data.toString(dataNasc);
     }
+
+    
     
     
 }

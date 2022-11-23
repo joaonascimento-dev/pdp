@@ -187,11 +187,108 @@ public class SiteController {
         return mav;
     }
 
-    @RequestMapping("/cadastroAluno")
-    public ModelAndView cadastroAluno(HttpSession session) {
-        ModelAndView mav = new ModelAndView("cadastroAluno");
+    @PostMapping(value = "/cadastrarUsuAlu/")
+    public String cadastrarUsuAlu(String login, String senha) {
+
+        Usuario usuario = new Usuario();
+        usuario.setLogin(login);
+        usuario.setSenha(senha);
+        usuarioService.save(usuario);
+
+        return "redirect:/cadastroAluno2/" + usuario.getId();
+
+    }
+
+    @RequestMapping("/cadastroAluno1")
+    public ModelAndView cadastroAluno1(HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroAluno1");
 
         return mav;
+    }
+
+    @RequestMapping("/cadastroAluno2/{id}")
+    public ModelAndView cadastroAluno2(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroAluno2");
+
+        mav.addObject("idUsuario", id);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/cadastrarAluno/")
+    public String formacaoCadastrar(Integer idUsuario, String nome, String nomeSocial, String dataNasc, String sexo, String rg, String cpf, String ra, String curso, String dataInicio,
+    String dataFim, String telefone, String email, String logradouro, String numero, String cep, String complemento, String bairro, String cidade, String estado,
+    String pais, String nacionalidade) {
+
+        Aluno aluno = new Aluno();
+
+        Usuario usuario = usuarioService.findById(idUsuario);
+        
+        aluno.setUsuario(usuario);
+        aluno.setNome(nome.trim().equals("") ? aluno.getNome() : nome.trim());
+        aluno.setNomeSocial(nomeSocial.trim().equals("") ? aluno.getNomeSocial() : nomeSocial.trim());
+        aluno.setDataNasc(dataNasc != null ? Data.fromStringISO(dataNasc).atStartOfDay() : null);
+        aluno.setSexo(sexo.trim().equals("") ? aluno.getSexo() : sexo.trim());
+        aluno.setRg(rg.trim().equals("") ? aluno.getRg() : rg.trim());
+        aluno.setCpf(cpf.trim().equals("") ? aluno.getCpf() : cpf.trim());
+        aluno.setRa(ra.trim().equals("") ? aluno.getRa() : ra.trim());
+        aluno.setCurso(curso.trim().equals("") ? aluno.getCurso() : curso.trim());
+        aluno.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
+        aluno.setDataTermino(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
+        aluno.setTelefone(telefone.trim().equals("") ? aluno.getTelefone() : telefone.trim());
+        aluno.setEmail(email.trim().equals("") ? aluno.getEmail() : email.trim());
+        aluno.setLogradouro(logradouro.trim().equals("") ? aluno.getLogradouro() : logradouro.trim());
+        aluno.setNumero(numero.trim().equals("") ? aluno.getNumero() : numero.trim());
+        aluno.setCep(cep.trim().equals("") ? aluno.getCep() : cep.trim());
+        aluno.setComplemento(complemento.trim().equals("") ? aluno.getComplemento() : complemento.trim());
+        aluno.setBairro(bairro.trim().equals("") ? aluno.getBairro() : bairro.trim());
+        aluno.setCidade(cidade.trim().equals("") ? aluno.getCidade() : cidade.trim());
+        aluno.setEstado(estado.trim().equals("") ? aluno.getEstado() : estado.trim());
+        aluno.setPais(pais.trim().equals("") ? aluno.getPais() : pais.trim());
+        aluno.setNacionalidade(nacionalidade.trim().equals("") ? aluno.getNacionalidade() : nacionalidade.trim());
+        alunoService.save(aluno);
+        usuario.setAluno(aluno);
+        usuarioService.save(usuario);
+
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/aluno/editar/{id}")
+    public ModelAndView editarAluno(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("editarAluno");
+
+        Aluno aluno = alunoService.findById(id);
+        mav.addObject("aluno", aluno);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/editarAluno/{id}")
+    public String alunoEditar(@PathVariable(name = "id") Integer id, String nome, String nomeSocial, String dataNasc, String sexo, String rg, String cpf, String ra, String telefone, String email, String logradouro, String numero, String cep, String complemento, String bairro, String cidade, String estado,
+    String pais) {
+
+        Aluno aluno = alunoService.findById(id);
+        aluno.setNome(nome.trim().equals("") ? aluno.getNome() : nome.trim());
+        aluno.setNomeSocial(nomeSocial.trim().equals("") ? aluno.getNomeSocial() : nomeSocial.trim());
+        aluno.setDataNasc(dataNasc != null ? Data.fromStringISO(dataNasc).atStartOfDay() : null);
+        aluno.setSexo(sexo.trim().equals("") ? aluno.getSexo() : sexo.trim());
+        aluno.setRg(rg.trim().equals("") ? aluno.getRg() : rg.trim());
+        aluno.setCpf(cpf.trim().equals("") ? aluno.getCpf() : cpf.trim());
+        aluno.setRa(ra.trim().equals("") ? aluno.getRa() : ra.trim());
+        aluno.setTelefone(telefone.trim().equals("") ? aluno.getTelefone() : telefone.trim());
+        aluno.setEmail(email.trim().equals("") ? aluno.getEmail() : email.trim());
+        aluno.setLogradouro(logradouro.trim().equals("") ? aluno.getLogradouro() : logradouro.trim());
+        aluno.setNumero(numero.trim().equals("") ? aluno.getNumero() : numero.trim());
+        aluno.setCep(cep.trim().equals("") ? aluno.getCep() : cep.trim());
+        aluno.setComplemento(complemento.trim().equals("") ? aluno.getComplemento() : complemento.trim());
+        aluno.setBairro(bairro.trim().equals("") ? aluno.getBairro() : bairro.trim());
+        aluno.setCidade(cidade.trim().equals("") ? aluno.getCidade() : cidade.trim());
+        aluno.setEstado(estado.trim().equals("") ? aluno.getEstado() : estado.trim());
+        aluno.setPais(pais.trim().equals("") ? aluno.getPais() : pais.trim());
+        alunoService.save(aluno);
+
+        return "redirect:/perfilAluno/" + aluno.getId();
     }
 
     @RequestMapping("/perfilAluno/{id}")
