@@ -69,6 +69,10 @@ public class VagaRepositoryImpl implements RepositoryCustom<Vaga> {
             }
         }
 
+        if (vagaFiltro.getBusca() != null) {
+            predicates.add(cb.like(rootVaga.get("titulo"), "%" + vagaFiltro.getBusca() + "%"));
+        }
+
         cq.select(rootVaga).where(
                 cb.and(predicates.toArray(new Predicate[] {})));
 
