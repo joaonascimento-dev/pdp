@@ -2,6 +2,7 @@ package br.fatec.pdp.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
@@ -177,19 +178,97 @@ public class SiteController {
         return mav;
     }
 
-    @RequestMapping("/CadastroUsuarioEmpresa")
-    public ModelAndView cadastroUsuEmp(HttpSession session) {
-        ModelAndView mav = new ModelAndView("CadastroUsuarioEmpresa");
+    @PostMapping(value = "/cadastrarUsuEmp/")
+    public String cadastrarUsuEmp(String login, String senha) {
+
+        Usuario usuario = new Usuario();
+        usuario.setLogin(login);
+        usuario.setSenha(senha);
+        usuarioService.save(usuario);
+
+        return "redirect:/cadastroEmpresa2/" + usuario.getId();
+
+    }
+
+    @RequestMapping("/cadastroEmpresa1")
+    public ModelAndView cadastroEmpresa1(HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroEmpresa1");
 
         return mav;
     }
 
-    @RequestMapping("/cadastroEmpresa")
-    public ModelAndView cadastroEmp(HttpSession session) {
-        ModelAndView mav = new ModelAndView("cadastroEmpresa");
+    @RequestMapping("/cadastroEmpresa2/{id}")
+    public ModelAndView cadastroEmp(@PathVariable(name = "id") Integer id, HttpSession session) {
+        ModelAndView mav = new ModelAndView("cadastroEmpresa2");
+
+        mav.addObject("idUsuario", id);
 
         return mav;
     }
+
+    @PostMapping(value = "/cadastrarEmpresa/")
+    public String formacaoCadastrar(Integer idUsuario, String nomeFantasia, String razaoSocial, String cnpj, String telefone, String email, String logradouro,
+    String numero, String cep, String complemento, String bairro, String cidade, String estado, String pais) {
+
+        Empresa empresa = new Empresa();
+
+        Usuario usuario = usuarioService.findById(idUsuario);
+        
+        empresa.setUsuario(usuario);
+        empresa.setNomeFantasia(nomeFantasia.trim().equals("") ? empresa.getNomeFantasia() : nomeFantasia.trim());
+        empresa.setRazaoSocial(razaoSocial.trim().equals("") ? empresa.getRazaoSocial() : razaoSocial.trim());
+        empresa.setCnpj(cnpj.trim().equals("") ? empresa.getCnpj() : cnpj.trim());
+        empresa.setTelefone(telefone.trim().equals("") ? empresa.getTelefone() : telefone.trim());
+        empresa.setEmail(email.trim().equals("") ? empresa.getEmail() : email.trim());
+        empresa.setLogradouro(logradouro.trim().equals("") ? empresa.getLogradouro() : logradouro.trim());
+        empresa.setNumero(numero.trim().equals("") ? empresa.getNumero() : numero.trim());
+        empresa.setCep(cep.trim().equals("") ? empresa.getCep() : cep.trim());
+        empresa.setComplemento(complemento.trim().equals("") ? empresa.getComplemento() : complemento.trim());
+        empresa.setBairro(bairro.trim().equals("") ? empresa.getBairro() : bairro.trim());
+        empresa.setCidade(cidade.trim().equals("") ? empresa.getCidade() : cidade.trim());
+        empresa.setEstado(estado.trim().equals("") ? empresa.getEstado() : estado.trim());
+        empresa.setPais(pais.trim().equals("") ? empresa.getPais() : pais.trim());
+        empresaService.save(empresa);
+        usuario.setEmpresa(empresa);
+        usuarioService.save(usuario);
+
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/empresa/editar/{id}")
+    public ModelAndView editarEmpresa(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("editarEmpresa");
+
+        Empresa empresa = empresaService.findById(id);
+        mav.addObject("empresa", empresa);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/editarEmpresa/{id}")
+    public String editarEmpresa(@PathVariable(name = "id") Integer id, String nomeFantasia, String razaoSocial, String cnpj, String telefone, String email, String logradouro,
+    String numero, String cep, String complemento, String bairro, String cidade, String estado, String pais) {
+
+        Empresa empresa = new Empresa();
+        empresa.setNomeFantasia(nomeFantasia.trim().equals("") ? empresa.getNomeFantasia() : nomeFantasia.trim());
+        empresa.setRazaoSocial(razaoSocial.trim().equals("") ? empresa.getRazaoSocial() : razaoSocial.trim());
+        empresa.setCnpj(cnpj.trim().equals("") ? empresa.getCnpj() : cnpj.trim());
+        empresa.setTelefone(telefone.trim().equals("") ? empresa.getTelefone() : telefone.trim());
+        empresa.setEmail(email.trim().equals("") ? empresa.getEmail() : email.trim());
+        empresa.setLogradouro(logradouro.trim().equals("") ? empresa.getLogradouro() : logradouro.trim());
+        empresa.setNumero(numero.trim().equals("") ? empresa.getNumero() : numero.trim());
+        empresa.setCep(cep.trim().equals("") ? empresa.getCep() : cep.trim());
+        empresa.setComplemento(complemento.trim().equals("") ? empresa.getComplemento() : complemento.trim());
+        empresa.setBairro(bairro.trim().equals("") ? empresa.getBairro() : bairro.trim());
+        empresa.setCidade(cidade.trim().equals("") ? empresa.getCidade() : cidade.trim());
+        empresa.setEstado(estado.trim().equals("") ? empresa.getEstado() : estado.trim());
+        empresa.setPais(pais.trim().equals("") ? empresa.getPais() : pais.trim());
+        empresaService.save(empresa);
+
+        return "redirect:/perfilEmpresa/" + empresa.getId();
+    }
+
 
     @PostMapping(value = "/cadastrarUsuAlu/")
     public String cadastrarUsuAlu(String login, String senha) {
@@ -220,7 +299,7 @@ public class SiteController {
     }
 
     @PostMapping(value = "/cadastrarAluno/")
-    public String formacaoCadastrar(Integer idUsuario, String nome, String nomeSocial, String dataNasc, String sexo, String rg, String cpf, String ra, String curso, String dataInicio,
+    public String alunoCadastrar(Integer idUsuario, String nome, String nomeSocial, String dataNasc, String sexo, String rg, String cpf, String ra, String curso, String dataInicio,
     String dataFim, String telefone, String email, String logradouro, String numero, String cep, String complemento, String bairro, String cidade, String estado,
     String pais, String nacionalidade) {
 
