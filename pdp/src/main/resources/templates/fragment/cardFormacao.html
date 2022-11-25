@@ -1,8 +1,10 @@
 <div class="card" style="background-color: #efece9;">  
+    <i class="bi bi-book fs-2 text-center"></i>
     <h6 class="mt-1 mb-1 mx-5"><strong>[(${formacao.instituicao})]</strong></h6>
     <p class="m-1 mx-3">[(${formacao.diploma})] - [(${formacao.curso})]</p>
     <p th:if="${formacao.atual}" class="m-1 mx-3">[(${formacao.printDataInicio})] - Atualmente</p>
     <p th:unless="${formacao.atual}" class="m-1 mx-3">[(${formacao.printDataInicio})] - [(${formacao.printDataFim})]</p>
+    <p th:if="${!formacao.descricao.isEmpty()}" class="m-1 mx-3">[(${formacao.descricao})]</p>
     <div class="text-end">
       <a th:href="'/formacao/editar/' + ${formacao.id}" class="btn btn-outline-danger stretched-link m-2"><i class="bi bi-pencil-fill"></i> Editar</a>
     </div>
