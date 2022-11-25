@@ -447,7 +447,7 @@ public class SiteController {
         experiencia.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
         experiencia.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
         experiencia.setAtual(atual);
-        experiencia.setDescricao(descricao.trim().equals("") ? experiencia.getDescricao() : descricao.trim());
+        experiencia.setDescricao(descricao.trim());
         experienciaService.save(experiencia);
 
         return "redirect:/perfilAluno/" + experiencia.getAluno().getId();
@@ -515,7 +515,7 @@ public class SiteController {
         formacao.setDataInicio(dataInicio != null ? Data.fromStringISO(dataInicio).atStartOfDay() : null);
         formacao.setDataFim(dataFim != null ? Data.fromStringISO(dataFim).atStartOfDay() : null);
         formacao.setAtual(atual);
-        formacao.setDescricao(descricao.trim().equals("") ? formacao.getDescricao() : descricao.trim());
+        formacao.setDescricao(descricao.trim());
         formacaoService.save(formacao);
 
         return "redirect:/perfilAluno/" + formacao.getAluno().getId();
@@ -621,9 +621,10 @@ public class SiteController {
         vaga.setTitulo(titulo.trim().equals("") ? vaga.getTitulo() : titulo.trim());
         vaga.setDescricao(descricao.trim().equals("") ? vaga.getDescricao() : descricao.trim());
         vaga.setEmpresa(empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(idEmpresa).build()));
+        vaga.setAtivo(true);
         vagaService.save(vaga);
 
-        return "redirect:/empresa/" + vaga.getEmpresa().getId();
+        return "redirect:/perfilEmpresa/" + vaga.getEmpresa().getId();
     }
 
     @RequestMapping("/vaga/editar/{id}")
@@ -645,7 +646,7 @@ public class SiteController {
         vaga.setDescricao(descricao.trim().equals("") ? vaga.getDescricao() : descricao.trim());
         vagaService.save(vaga);
 
-        return "redirect:/empresa/" + vaga.getEmpresa().getId();
+        return "redirect:/perfilEmpresa/" + vaga.getEmpresa().getId();
     }
 
     @PostMapping(value = "/excluirVaga/{id}")
@@ -655,6 +656,6 @@ public class SiteController {
         vaga.setExclusao(LocalDateTime.now());
         vagaService.save(vaga);
 
-        return "redirect:/empresa/" + vaga.getEmpresa().getId();
+        return "redirect:/perfilEmpresa/" + vaga.getEmpresa().getId();
     }
 }
