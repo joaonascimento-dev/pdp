@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.fatec.pdp.filtro.EmpresaFiltro;
 import br.fatec.pdp.filtro.VagaFiltro;
+import br.fatec.pdp.model.Empresa;
 import br.fatec.pdp.model.Vaga;
+import br.fatec.pdp.service.EmpresaService;
 import br.fatec.pdp.service.VagaService;
 
 @Controller
@@ -20,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private VagaService vagaService;
+
+    @Autowired
+    private EmpresaService empresaService;
     
     @RequestMapping("/admin")
     public ModelAndView index(HttpSession session) {
@@ -70,6 +76,50 @@ public class AdminController {
         vagaService.save(vaga);
 
         return "redirect:/admin/aprovarVagas";
+    }
+
+    @RequestMapping("/admin/aprovarEmpresas")
+    public ModelAndView aprovarEmpresas(HttpSession session) {
+        ModelAndView mav = new ModelAndView("admin/aprovarEmpresa");
+
+        List<Empresa> listEmpresa = empresaService.findByCriteria(
+            (EmpresaFiltro) new EmpresaFiltro.Builder().aprovacao(null).build()
+            );
+        mav.addObject("listEmpresa", listEmpresa);
+
+        return mav;
+
+    }
+
+    @RequestMapping("admin/empresa/editar/{id}")
+    public ModelAndView empresaEditar(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("admin/empresaEditar");
+
+        Empresa empresa = empresaService.findById(id);
+        mav.addObject("empresa", empresa);
+
+        return mav;
+    }
+
+    @PostMapping(value = "/aprovarEmpresa/{id}")
+    public String empresaAprovar(@PathVariable(name = "id") Integer id) {
+
+        Empresa empresa = empresaService.findById(id);
+        empresa.setAprovacao(true);
+        empresaService.save(empresa);
+
+        return "redirect:/admin/aprovarEmpresas";
+    }
+
+    @PostMapping(value = "/reprovarEmpresa/{id}")
+    public String empresaReprovar(@PathVariable(name = "id") Integer id) {
+
+        Empresa empresa = empresaService.findById(id);
+        empresa.setAprovacao(false);
+        empresaService.save(empresa);
+
+        return "redirect:/admin/aprovarEmpresas";
     }
 
 }

@@ -45,6 +45,9 @@ public class Empresa {
     @OneToMany(mappedBy = "empresa")
     private List<Vaga> listVaga = new ArrayList<>();
 
+    private Boolean aprovacao;
+    private boolean parceira;
+
     public Integer getId() {
         return id;
     }
@@ -189,5 +192,21 @@ public class Empresa {
         this.listVaga = listVaga;
     }
 
+    public Boolean getAprovacao() {
+        return aprovacao;
+    }
+
+    public void setAprovacao(Boolean aprovacao) {
+        this.aprovacao = aprovacao;
+    }
+
+    public boolean isParceira() {
+        return parceira;
+    }
+
+    public void setParceira(boolean parceira) {
+        this.parceira = parceira;
+    }
+    
     
 }

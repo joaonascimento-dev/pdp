@@ -49,6 +49,16 @@ public class EmpresaRepositoryImpl implements RepositoryCustom<Empresa> {
             predicates.add(cb.equal(rootEmpresa.get("nomeFantasia"), empresaFiltro.getNomeFantasia()));
         }
 
+        if (empresaFiltro.isAprovacao() != null) {
+            if (empresaFiltro.isAprovacao()) {
+                predicates.add(cb.isTrue(rootEmpresa.get("aprovacao")));
+            } else {
+                predicates.add(cb.isFalse(rootEmpresa.get("aprovacao")));
+            }
+        } else {
+            predicates.add(cb.isNull(rootEmpresa.get("aprovacao")));
+        }
+
         /* Empresa não possui campo exclusao
         if(filtro.isExibirExcluidos() != null){
             if (!filtro.isExibirExcluidos()) {
