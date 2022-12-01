@@ -1,7 +1,7 @@
 # Portal de Vagas da Fatec Itapira
 Trabalho 2 Semestre - Site de Vagas de Emprego
 
-![image](trivagasHTML/img/Logo.png)
+![image](Logo.png)
 
 <h1> O Portal de Vagas da Fatec Itapira</h1>
 <p>Encontre sua vaga de estágio ou contrato de emprego com dezenas de empresas parceiras, exclusivamente
