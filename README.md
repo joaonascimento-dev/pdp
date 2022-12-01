@@ -9,7 +9,7 @@ Trabalho 2 Semestre - Site de Vagas de Emprego
 <hr>                
 <p>O repositório foi feito com a intenção de deixar a mostra nosso trabalho e de fácil acesso para quem quiser visitar o Portal!</p>
 
-<p>Projeto desenvolvimento as mais novas tecnologias de Java para Web, contando com Spring boot, Jpa e Hybernate no back-end, Thymeleaf, Bootstrap e Javascript no front-end e MYSQL para o banco de dados</p>
+<p>Projeto foi desenvolvido com as mais novas tecnologias de Java para Web, contando com Spring boot, Jpa e Hybernate no back-end, Thymeleaf, Bootstrap e Javascript no front-end e MYSQL para o banco de dados</p>
 
 <a href="https://trello.com/b/GTUbGxAW/projeto-interdisciplinar"> Link do Trello! </a>
   
