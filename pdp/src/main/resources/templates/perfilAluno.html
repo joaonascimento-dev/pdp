@@ -163,6 +163,19 @@
               </div>
             </div> 
           </div>
+          <div class="col-md-8 col-10 mb-3">
+            <div class="card p-4 rounded-5" >
+              <p class="fs-4 text-center">Vagas Aplicadas</p>
+              <div class="row row-cols-3 align-items-center">
+                <div th:each="vaga : ${listAlunoVaga}" class="col mb-2">
+                  <th:block th:replace="@{/fragment/cardVagaAluno}" />
+                </div>
+              </div>
+              <div class="text-end">
+            </div> 
+          </div>
+          </div>
+          
       </div>
 
     </form>
