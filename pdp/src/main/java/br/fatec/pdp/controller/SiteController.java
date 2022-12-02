@@ -118,6 +118,7 @@ public class SiteController {
         return "redirect:/";
     }
 
+    
     @RequestMapping("/vagas")
     public ModelAndView vagas(Optional<String> busca, HttpSession session) {
         ModelAndView mav = new ModelAndView("vagas");
@@ -154,7 +155,8 @@ public class SiteController {
         
         //Puxar usuario q está logado
         //Usuario usuario = usuarioService.findById(1);
-        Aluno aluno = alunoService.findById(1);
+        Usuario usuario = (Usuario)session.getAttribute("usuario");
+        Aluno aluno = usuario.getAluno();
         
         AlunoVaga alunoVaga = new AlunoVaga();
         alunoVaga.setAluno(aluno);
@@ -384,6 +386,7 @@ public class SiteController {
         mav.addObject("listExperiencia", aluno.getListExperiencia());
         mav.addObject("listFormacao", aluno.getListFormacao());
         mav.addObject("listHabilidade", aluno.getListHabilidade());
+        mav.addObject("listAlunoVaga", aluno.getListAlunoVaga());
         return mav;
     }
 
@@ -593,7 +596,7 @@ public class SiteController {
     public ModelAndView empresa(@PathVariable(name = "id") Integer id, HttpSession session) {
         ModelAndView mav = new ModelAndView("perfilEmpresa");
 
-        Empresa empresa = empresaService.getByCriteria((EmpresaFiltro) new EmpresaFiltro.Builder().id(id).build());
+        Empresa empresa = empresaService.findById(id);
 
         mav.addObject("empresa", empresa);
         mav.addObject("listVaga", empresa.getListVaga().stream().filter(v -> v.getExclusao() == null).collect(Collectors.toList()));
@@ -657,5 +660,18 @@ public class SiteController {
         vagaService.save(vaga);
 
         return "redirect:/perfilEmpresa/" + vaga.getEmpresa().getId();
+    }
+
+    @RequestMapping("/vaga/detalhes/{id}")
+    public ModelAndView vagaAlunoDetalhe(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("vagaAlunoDetalhe");
+
+        Vaga vaga = vagaService.findById(id);
+        mav.addObject("vaga", vaga);
+        mav.addObject("listAlunoVaga", vaga.getListAlunoVaga());
+
+
+        return mav;
     }
 }
