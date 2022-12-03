@@ -1,11 +1,19 @@
 <div class="card">
-    <img src="/img/job1.png" class="card-img-top" alt="...">
+    <img src="/img/interview.png" class="card-img-top" alt="...">
     <p th:if="${vaga.aprovacao == null}" class="bg-secondary text-white m-0 fw-bold text-center">AGUARDANDO APROVAÇÃO</p> 
     <p th:if="${vaga.aprovacao} == false" class="bg-danger text-white m-0 fw-bold text-center">REPROVADA</p> 
-    <div class="card-body">
-        
+    <div class="card-body">  
         <h5 class="card-title">[(${vaga.titulo})]</h5>
-        <p class="card-text">[(${vaga.descricao})]</p>
-        <a th:href="'/vaga/editar/' + ${vaga.id}" class="btn btn-outline-danger stretched-link"><i class="bi bi-pencil-fill"></i> Editar</a>
+        <p class="card-text">[(${vaga.descricao})]</p>    
+    </div>
+    <div class="px-2">
+        <div class="row">
+            <div class="col mb-3">
+                <a th:href="'/vaga/detalhes/' + ${vaga.id}" class="btn btn-outline-danger"><i class="bi bi-list"></i> Detalhes</a>
+            </div>
+            <div class="col mb-3 text-end">
+                <a th:href="'/vaga/editar/' + ${vaga.id}" class="btn btn-outline-danger"><i class="bi bi-pencil-fill"></i> Editar</a>
+            </div>
+        </div>
     </div>
 </div>

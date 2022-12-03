@@ -29,8 +29,10 @@
         <div class="col-7">
           <input type="hidden" name="idEmpresa" th:value="${empresa.id}">
 
+          <label>Titulo da Vaga</label>
           <input type="text" class="form-control" name="titulo" th:value="${vaga.titulo}" required>
           <p class="text-end mt-2">[(${empresa.getNomeFantasia()})] - Itapira, SP</p>
+          <label>Descrição da Vaga</label>
           <textarea type="text" class="form-control" name="descricao" th:text="${vaga.descricao}" required></textarea>
 
           <div class="row">

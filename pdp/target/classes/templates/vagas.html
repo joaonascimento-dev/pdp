@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-  <link th:href="@{/app/style.css}" rel="stylesheet"> 
+  <link th:href="@{/app/style.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
 
-    <th:block th:replace="fragment/navbar" />
+  <th:block th:replace="fragment/navbar" />
 
   <div class="container-fluid border border-1">
 
@@ -44,55 +44,15 @@
 
               <div id="filtro_collapse">
 
-                <form class="mt-4" method="get">
-                  <label for="id">Título</label>
+                <label for="id">Título</label>
 
-                  <div class="input-group">
-                    <input th:value="${filtroId}" name="id" type="text" class="form-control" autocomplete="off"
-                      inputmode="numeric" />
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-danger" type="submit"><i class="bi bi-search"></i></button>
-                    </div>
-                  </div>
-                </form>
-
-                <div class="form-group mt-4">
-
-                  <label for="imovel_tipo">Tipo da Vaga</label>
-                  <select id="imovel_tipo" name="imovel_tipo" class="form-select">
-                    <option th:each="imovelTipo : ${listImovelTipo}" th:value="${imovelTipo.name()}"
-                      th:text="${imovelTipo}" th:selected="${filtroImovelTipo==imovelTipo}">Todos
-                    </option>
-                  </select>
+                <div class="input-group">
+                  <input th:value="${busca}" name="busca" type="text" class="form-control" autocomplete="off"/>
                 </div>
-
-                <div class="form-group mt-4">
-
-                  <label for="imovel_tipo">Área de Atuação</label>
-                  <select id="imovel_tipo" name="imovel_tipo" class="form-select">
-                    <option th:each="imovelTipo : ${listImovelTipo}" th:value="${imovelTipo.name()}"
-                      th:text="${imovelTipo}" th:selected="${filtroImovelTipo==imovelTipo}">Todos
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-group mt-4">
-
-                  <label for="cidade">Cidade</label>
-                  <select id="cidade" name="cidade" class="form-select">
-                    <option value="0">Todas</option>
-                    <option th:each="cidade : ${listCidade}" th:value="${cidade.id}" th:text="${cidade.getNomeComUf()}"
-                      th:selected="${filtroCidade==cidade}">
-                      Cidade</option>
-                  </select>
-
-                </div>
-
-                
 
                 <div class="input-group mt-4">
                   <div class="btn-group btn-block w-100">
-                    <a th:href="'/imoveis'" class="btn btn-outline-secondary"><i class="bi bi-x-lg"></i> Limpar</a>
+                    <a th:href="'/vagas'" class="btn btn-outline-secondary"><i class="bi bi-x-lg"></i> Limpar</a>
 
                     <button type="submit" class="btn btn-outline-danger"><i class="bi bi-search"></i> Filtrar</button>
                   </div>

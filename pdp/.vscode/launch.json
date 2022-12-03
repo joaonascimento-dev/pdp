@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PdpApplication<pdp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.fatec.pdp.PdpApplication",
+            "projectName": "pdp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

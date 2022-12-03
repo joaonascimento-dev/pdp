@@ -32,6 +32,13 @@
 
         <div class="col-md-8 col-10 mb-3">
           <div class="card p-4 rounded-4">
+            <div th:if="${empresa.aprovacao == null}" class="container-fluid bg-secondary text-center text-white rounded fs-3 mb-5">
+              <p class="mb-0">Sua empresa está aguardando aprovação!</p>
+            </div>
+            <div th:if="${empresa.aprovacao == false}" class="container-fluid bg-warning text-center text-white rounded fs-3 mb-5">
+              <p class="mb-0">Sua empresa foi reprovada!</p>
+            </div>
+
             <p class="fs-4 text-center">Informações da Empresa</p>
             <div class="col-md-11 mb-4 mx-auto border border-secondary border-1 rounded-5" style="background-color: #efece9;">
               <div class="m-1 row align-items-center">
@@ -99,13 +106,13 @@
                 </div>
               </div>
               <div class= "text-end me-3 mb-3"> 
-                <a class="btn btn-lg btn-danger mx-auto" href="#"><i class="bi bi-pencil-fill"></i> Editar</a>
+                <a th:href="'/empresa/editar/' + ${empresa.id}" class="btn btn-outline-danger stretched-link"><i class="bi bi-pencil-fill"></i> Editar</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-8 col-10 mb-3">
+        <div th:if="${empresa.aprovacao == true}" class="col-md-8 col-10 mb-3">
           <div class="card p-4 rounded-5" >
             <div class="d-flex justify-content-center">
               <p class="fs-4 mt-4">Suas Vagas</p>

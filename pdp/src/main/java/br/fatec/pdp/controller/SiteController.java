@@ -266,6 +266,11 @@ public class SiteController {
         empresa.setCidade(cidade.trim().equals("") ? empresa.getCidade() : cidade.trim());
         empresa.setEstado(estado.trim().equals("") ? empresa.getEstado() : estado.trim());
         empresa.setPais(pais.trim().equals("") ? empresa.getPais() : pais.trim());
+
+        if(empresa.getAprovacao() == null || empresa.getAprovacao() == false){
+            empresa.setAprovacao(null);
+        }
+
         empresaService.save(empresa);
 
         return "redirect:/perfilEmpresa/" + empresa.getId();
