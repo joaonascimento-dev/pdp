@@ -1,4 +1,4 @@
-<div class="card" style="background-color: #efece9;"> 
+<div class="card m-0" style="background-color: #efece9;"> 
     <i class="fs-2 bi bi-briefcase text-center"></i> 
     <h5 class="mb-1 mx-auto"><strong>[(${experiencia.titulo})]</strong></h5>
     <p class="m-1 mx-3">[(${experiencia.nomeEmpresa})] - [(${experiencia.cargo})]</p>
@@ -6,7 +6,4 @@
     <p th:unless="${experiencia.atual}" class="m-1 mx-3">[(${experiencia.printDataInicio})] - [(${experiencia.printDataFim})]</p>
     <p class="m-1 mx-3">[(${experiencia.cidadeEmpresa})], [(${experiencia.estadoEmpresa})], [(${experiencia.paisEmpresa})]</p>
     <p th:if="${!#strings.isEmpty(experiencia.descricao)}" class="m-1 mx-3">[(${experiencia.descricao})]</p>
-    <div class="text-end">
-      <a th:href="'/experiencia/editar/' + ${experiencia.id}" class="btn btn-outline-danger stretched-link m-2"><i class="bi bi-pencil-fill"></i> Editar</a>
-    </div>
   </div>

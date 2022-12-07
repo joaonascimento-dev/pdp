@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trivagas - Vagas</title>
+  <title>Portal Vagas - Vagas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -23,7 +23,7 @@
   <div class="container-fluid border border-1">
 
   </div>
-  <div class="container pt-5">
+  <div class="container pt-5" style="min-height: 614px;">
     <div class="row">
       <div class="col-md-4">
 
@@ -67,33 +67,13 @@
       </div>
       <div class="col-md-8">
         <div class="d-flex">
-          <p class="fs-4">[(${listVaga.size()})] Vaga(s) Encontragas</p>
+          <p class="fs-4">[(${listVaga.size()})] Vaga(s) Encontradas</p>
         </div>
 
         <div class="row row-cols-md-2 row-cols-1">
           <div th:each="vaga : ${listVaga}" class="col mb-2">
             <th:block th:replace="@{/fragment/cardVaga}" />
           </div>
-        </div>
-
-        <div class="mt-2">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
 
       </div>
