@@ -395,6 +395,20 @@ public class SiteController {
         return mav;
     }
 
+    @RequestMapping("/aluno/candidato/{id}")
+    public ModelAndView alunoCandidato(@PathVariable(name = "id") Integer id,
+            HttpSession session) {
+        ModelAndView mav = new ModelAndView("alunoCandidato");
+
+        Aluno aluno = alunoService.findById(id);
+        mav.addObject("aluno", aluno);
+        mav.addObject("listExperiencia", aluno.getListExperiencia());
+        mav.addObject("listFormacao", aluno.getListFormacao());
+        mav.addObject("listHabilidade", aluno.getListHabilidade());
+
+        return mav;
+    }
+
     @RequestMapping("/experiencia/cadastrar/{id}")
     public ModelAndView experienciaCadastrar(@PathVariable(name = "id") Integer id, HttpSession session) {
         ModelAndView mav = new ModelAndView("experienciaCadastrar");
